@@ -1,0 +1,24 @@
+{
+  "name": "tangsj.github.io",
+  "version": "1.0.0",
+  "description": "玩玩React",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tangsj/tangsj.github.io.git"
+  },
+  "keywords": [
+    "react",
+    "codecook",
+    "tangsj"
+  ],
+  "author": "tangsj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tangsj/tangsj.github.io/issues"
+  },
+  "homepage": "https://github.com/tangsj/tangsj.github.io#readme"
+}
