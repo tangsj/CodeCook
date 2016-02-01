@@ -1,4 +1,7 @@
-var webpack = require('webpack');
+var webpack        = require('webpack');
+var cssimport      = require('postcss-import');
+var nested         = require('postcss-nested');
+var autoprefixer   = require('autoprefixer');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
@@ -23,9 +26,12 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        loader: 'style-loader!css-loader'
+        loader: 'style-loader!css-loader!postcss-loader?sourceMap'
       }
     ]
+  },
+  postcss: function(){
+    return [cssimport, autoprefixer]
   },
   plugins: [
     new uglifyJsPlugin({

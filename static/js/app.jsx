@@ -1,9 +1,6 @@
-require('../css/normalize.css');
-require('../css/app.css');
+// 站点Style
+require('../css/main.css');
+// 页面布局
+var Layout = require('./layout/layout.jsx');
 
-ReactDOM.render(
-  <div className="content">
-    <strong>C</strong>ode<span>c</span>ook Static <strong>R</strong>oot
-  </div>,
-  document.querySelector('#app-entry')
-);
+ReactDOM.render(<Layout />, document.querySelector('#app-entry'));

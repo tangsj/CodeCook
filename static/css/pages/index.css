@@ -1,6 +1,3 @@
-*{ box-sizing: border-box; margin: 0; padding: 0; }
-html, body, #app-entry{ height: 100%; }
-body{ background-color: #94C5E2; }
 .content{ text-align: center; font-size: 28px; color: #FFF; position: relative; top: 50%; transform: translateY(-50%); }
 .content strong{ font-size: 48px; }
 .content span,

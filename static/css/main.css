@@ -1,0 +1,8 @@
+@charset 'utf-8';
+
+@import 'lib/normalize.css';
+@import 'lib/common.css';
+
+@import 'comp/header.css';
+
+@import 'pages/index.css';
