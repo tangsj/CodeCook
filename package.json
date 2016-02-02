@@ -19,7 +19,6 @@
     "css-loader": "^0.23.1",
     "css-mqpacker": "^4.0.0",
     "csswring": "^4.2.1",
-    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "^0.8.5",
     "gulp": "^3.9.0",
     "gulp-postcss": "^6.0.1",

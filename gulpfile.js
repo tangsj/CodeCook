@@ -39,7 +39,7 @@ gulp.task('postcss', () => {
  */
 gulp.task('webpack:build', callback => {
   var config = Object.create(webpackConfig);
-  config.devtool = "source-map";
+  //config.devtool = "source-map";
   // run webpack
   webpack(config, function(err, stats) {
     if(err) throw new gutil.PluginError("webpack:build", err);
