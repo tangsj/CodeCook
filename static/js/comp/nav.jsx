@@ -3,21 +3,23 @@
  * @return {[type]}     [description]
  */
 module.exports = React.createClass({
-  getDefaultProps: function(){
+  getDefaultProps(){
     var siteConfig = require('../site.json');
     return {
       nav: siteConfig.nav
     }
   },
-  render: function(){
-    function getItem(target, index){
-      return (
-        <a key={index} href={ target.url || "javascript:;" }>{target.name}</a>
-      )
-    }
+  itemHandler(e){
+    alert($(e.target).text());
+  },
+  render(){
     return (
       <nav>
-        { this.props.nav.map(getItem) }
+        { this.props.nav.map((target, index) => {
+          return (
+            <a key={index} onClick={this.itemHandler} href={ target.url || "javascript:;" }>{target.name}</a>
+          )
+        }) }
       </nav>
     );
   }

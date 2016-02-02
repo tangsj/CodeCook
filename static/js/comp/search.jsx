@@ -3,7 +3,7 @@
  * @return {[type]}     [description]
  */
 module.exports = React.createClass({
-  searchHandler: function(){
+  searchHandler(){
     var input = this.refs.keys;
     var key = input.value.trim();
 
@@ -14,7 +14,7 @@ module.exports = React.createClass({
 
     alert(key);
   },
-  render: function(){
+  render(){
     return (
       <div className="search-form">
         <input ref="keys" type="text" name="keys" placeholder="Search" />

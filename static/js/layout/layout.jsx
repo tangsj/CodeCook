@@ -6,17 +6,17 @@ var Header = require('./header.jsx');
 var Main = require('./main.jsx');
 var Footer = require('./footer.jsx');
 
-module.exports = React.createClass({
-  getDefaultProps: function(){
+var PageLayout = React.createClass({
+  getDefaultProps(){
     return {}
   },
-  getInitialState: function(){
+  getInitialState(){
     return {}
   },
-  componentDidMount: function(){
+  componentDidMount(){
     console.log('Layout Component Mount');
   },
-  render: function(){
+  render(){
     return (
       <div className="layout-wrap">
         <Header />
@@ -28,3 +28,5 @@ module.exports = React.createClass({
     )
   }
 });
+
+module.exports = PageLayout;

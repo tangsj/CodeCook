@@ -5,8 +5,8 @@
 var Nav = require('../comp/nav.jsx');
 var Search = require('../comp/search.jsx');
 
-module.exports = React.createClass({
-  render: function(){
+var Header = React.createClass({
+  render(){
     return (
       <header>
         <div className="wrapper">
@@ -18,3 +18,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Header;

@@ -1,9 +1,9 @@
 /**
- * Header
+ * Footer
  * @type {[type]}
  */
-module.exports = React.createClass({
-  render: function(){
+var Footer = React.createClass({
+  render(){
     return (
       <footer>
         <div className="wrapper"></div>
@@ -11,3 +11,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Footer;

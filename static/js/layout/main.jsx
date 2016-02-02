@@ -2,8 +2,8 @@
  * Main
  * @type {[type]}
  */
-module.exports = React.createClass({
-  render: function(){
+var Main = React.createClass({
+  render(){
     return (
       <section id="main">
         <div className="wrapper"></div>
@@ -11,3 +11,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Main;
