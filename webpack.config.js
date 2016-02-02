@@ -1,15 +1,19 @@
+var path           = require('path');
 var webpack        = require('webpack');
-var cssimport      = require('postcss-import');
-var nested         = require('postcss-nested');
-var autoprefixer   = require('autoprefixer');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 module.exports = {
-  entry: './static/js/app.jsx',
+  entry: {
+    app: ['./static/js/app.jsx']
+  },
   output: {
-    filename: './dest/js/app.js'
+    path: path.resolve(__dirname, 'dest'),
+    publicPath: 'http://localhost:8080/dest/',
+    filename: 'js/app.js',
+    sourceMapFilename: '[file].map'
   },
   resolve: {
+    //配置别名，在项目中可缩减引用路径
     alias: {
       'jquery' : 'jquery/dist/jquery.min.js'
     }
@@ -25,15 +29,13 @@ module.exports = {
         }
       },
       {
-        test: /\.css$/,
-        loader: 'style-loader!css-loader!postcss-loader?sourceMap'
+        test: /\.json$/,
+        loader: 'json'
       }
     ]
   },
-  postcss: function(){
-    return [cssimport, autoprefixer]
-  },
   plugins: [
+    new webpack.HotModuleReplacementPlugin(),
     new uglifyJsPlugin({
       compress: {
         warnings: false

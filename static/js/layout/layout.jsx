@@ -2,19 +2,28 @@
  * 页面Layout
  * @return {[type]}     [description]
  */
-module.exports = React.createClass({
-  getInitialState: function(){
-    return {
+var Header = require('./header.jsx');
+var Main = require('./main.jsx');
+var Footer = require('./footer.jsx');
 
-    }
+module.exports = React.createClass({
+  getDefaultProps: function(){
+    return {}
+  },
+  getInitialState: function(){
+    return {}
   },
   componentDidMount: function(){
     console.log('Layout Component Mount');
   },
   render: function(){
     return (
-      <div className="content">
-        <strong>C</strong>ode<span>c</span>ook Static <strong>R</strong>oot
+      <div className="layout-wrap">
+        <Header />
+
+        <Main />
+
+        <Footer />
       </div>
     )
   }

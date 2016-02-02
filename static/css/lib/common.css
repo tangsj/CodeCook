@@ -2,6 +2,6 @@
 html, body, #app-entry{ height: 100%; }
 body{ background-color: #f5f8f9; font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif }
 a{ text-decoration: none; color: #565a5f; }
-a:hover { color: #38B7EA; transition: color .6s ease-in-out; }
+a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 
-.wrapper{ width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
+.wrapper{ min-width: 800px; max-width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
