@@ -12,7 +12,7 @@ module.exports = React.createClass({
   render: function(){
     function getItem(target, index){
       return (
-        <a key={index} href={ target.ur || "javascript:;" }>{target.name}</a>
+        <a key={index} href={ target.url || "javascript:;" }>{target.name}</a>
       )
     }
     return (
