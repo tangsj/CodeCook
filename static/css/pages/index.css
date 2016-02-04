@@ -1,7 +1,7 @@
 #main {
   .inner { background-color: #FFF; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); height: 100%; }
   .profile {
-    position: absolute; width: 285px; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5); animation: profile 1s ease forwards 0.3s ;
+    position: absolute; width: 285px; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5);
     .avatar { width: 128px; height: 128px; border-radius: 50%; border: 1px solid #ddd; margin-bottom: 20px; }
     .base-info{ padding: 35px 20px 25px; }
     .name{ font-size: 20px; font-weight: 600; }
@@ -49,6 +49,10 @@
   .tag-list li a:hover{ color: #38B7EA; }
   .tag-list li a i{ margin-right: 5px; }
   .tag-list li a span{ font-size: 12px; }
+}
+
+.loaded .profile{
+  animation: profile 1s ease forwards 0.3s ;
 }
 
 @keyframes profile{

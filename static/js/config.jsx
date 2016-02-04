@@ -27,7 +27,7 @@ var Config = {
     fullName: '汤世俊',
     mail: 't_fate@163.com',
     job: 'Web Developer',
-    address: 'Choneqing, China',
+    address: 'Chongqing, China',
     github: 'http://github.com/tangsj',
     weibo: 'http://weibo.com/u/2337863121',
     google: 'https://plus.google.com/103636345185627159316',

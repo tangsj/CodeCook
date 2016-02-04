@@ -16,12 +16,25 @@ body{ background-color: #f5f8f9; font: 14px "open sans", "Helvetica Neue", "Micr
 a{ text-decoration: none; color: #565a5f; }
 a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 .clearfix:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; font-size: 0;}
+.oh{ overflow: hidden; }
 
 .wrapper{ width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
 #main{ padding-top: 40px; padding-bottom: 60px; min-height: 600px; }
+.page-loading{ position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: #f5f8f9; }
+.page-loading .loading{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+
+/* Loading */
+.loading{ height: 8px; width: 8px; border-radius: 50%; background-color: #38B7EA; position: relative; animation: loading 1s ease infinite alternate; }
+
+@keyframes loading{
+  0%{ box-shadow: -50px 0 0px 3px #38B7EA, -25px 0 0 3px #38B7EA, 0 0 0 3px #38B7EA, 25px 0 0 3px #38B7EA, 50px 0 0 3px #38B7EA; }
+  50%{ box-shadow: 50px 20px 0px 3px #38B7EA, 25px 20px 0 3px #38B7EA, 0 0 0 3px #38B7EA, -25px -20px 0 3px #38B7EA, -50px -20px 0 3px #38B7EA; }
+  100%{ box-shadow: 50px -20px 0px 3px #38B7EA, 25px -20px 0 3px #38B7EA, 0 0 0 3px #38B7EA, -25px 20px 0 3px #38B7EA, -50px 20px 0 3px #38B7EA; }
+}
 
 /* Block Show */
-.block-show{animation: blockshow 1s ease forwards 1s; opacity: 0;}
+.block-show{ opacity: 0;}
+.loaded .block-show{ animation: blockshow 1s ease forwards 1s; }
 @keyframes blockshow{
   0%{ opacity: 0; }
   100%{ opacity: 1; }
