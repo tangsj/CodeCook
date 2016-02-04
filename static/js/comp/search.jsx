@@ -2,7 +2,7 @@
  * Search comp
  * @return {[type]}     [description]
  */
-module.exports = React.createClass({
+var Search = React.createClass({
   searchHandler(){
     var input = this.refs.keys;
     var key = input.value.trim();
@@ -23,3 +23,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Search;

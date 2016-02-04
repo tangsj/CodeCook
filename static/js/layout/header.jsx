@@ -8,7 +8,7 @@ var Search = require('../comp/search.jsx');
 var Header = React.createClass({
   render(){
     return (
-      <header>
+      <header className="block-show">
         <div className="wrapper">
           <a href="javascript:;" className="logo">CodeCook</a>
           <Nav />

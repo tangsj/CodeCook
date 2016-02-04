@@ -5,5 +5,6 @@
 @import 'lib/common.css';
 
 @import 'comp/header.css';
+@import 'comp/footer.css';
 
 @import 'pages/index.css'; 

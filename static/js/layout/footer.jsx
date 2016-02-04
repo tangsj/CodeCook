@@ -5,8 +5,11 @@
 var Footer = React.createClass({
   render(){
     return (
-      <footer>
-        <div className="wrapper"></div>
+      <footer className="block-show">
+        <div className="wrapper">
+          <p>© 2015 CodeCook</p>
+          <p>Chrome</p>
+        </div>
       </footer>
     );
   }

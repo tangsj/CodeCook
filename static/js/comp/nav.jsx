@@ -2,11 +2,10 @@
  * Nav comp
  * @return {[type]}     [description]
  */
-module.exports = React.createClass({
+var Nav = React.createClass({
   getDefaultProps(){
-    var siteConfig = require('../site.json');
     return {
-      nav: siteConfig.nav
+      nav: Config.nav
     }
   },
   itemHandler(e){
@@ -24,3 +23,5 @@ module.exports = React.createClass({
     );
   }
 });
+
+module.exports = Nav;

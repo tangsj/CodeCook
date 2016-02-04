@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>CodeCook</title>
   <link rel="icon" href="../images/logo.png">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,600" rel="stylesheet" type="text/css">
   <link rel="stylesheet" href="../css/main.min.css">
 </head>
 <body>
-  <header>
+  <header class="block-show">
     <div class="wrapper">
       <a href="javascript:;" class="logo">CodeCook</a>
 
@@ -28,11 +27,99 @@
   </header>
 
   <section id="main">
-    <div class="wrapper"></div>
+    <div class="wrapper">
+      <aside class="profile">
+        <div class="inner">
+          <div class="base-info">
+            <img src="../images/avatar.jpg" class="avatar" alt="">
+            <h2 class="name">CodeCook</h2>
+            <h3 class="title">Web Developer</h3>
+            <div class="location"><i class="icon-map-marker"></i>Chongqing, China</div>
+            <a href="http://github.com/tangsj" target="_blank" class="follow">FOLLOW</a>
+          </div>
+
+          <div class="article-info">
+            <div class="col">
+              10
+              <p>POSTS</p>
+            </div>
+            <div class="col">
+              0
+              <p>TAGS</p>
+            </div>
+          </div>
+
+          <div class="contact-info">
+            <a href="http://github.com/tangsj" target="_blank" class="github" title="github"><i class="icon-github"></i></a>
+            <a href="http://weibo.com/u/2337863121" target="_blank" class="weibo" title="weibo"><i class="icon-weibo"></i></a>
+            <a href="https://plus.google.com/103636345185627159316" target="_blank" class="google" title="google+"><i class="icon-google-plus"></i></a>
+          </div>
+        </div>
+      </aside>
+      <section class="post-list block-show">
+        <div class="inner">
+          <article class="posts">
+            <img src="../../uploads/shoes.jpg" alt="">
+
+            <div class="header">
+              <h1><a href="javascript:;">jQuery load() 方法加载图片在IE中不工作</a></h1>
+              <div class="meta">
+                <span class="date"><i class="icon-calendar"></i>2016-02-04</span>
+                <span class="category"><i class="icon-folder-close"></i><a href="javascript:;" class="category-link">Tag</a></span>
+              </div>
+            </div>
+
+            <div class="article-entry">
+              <p>当你的javascript动作需要在一张图片加载完成后才能进行时，你就需要用到.load()方法</p>
+
+              <p>
+              ```javascript
+              $('img').load(function(){
+                // do something
+              });
+              ```
+              </p>
+
+              <p>
+              但是你会发现，这样在IE中是不起作用的，这是因为IE缓存引起的，解决办法：
+              </p>
+
+              <p>
+              ```javascript
+              var $img = $('img');
+              $img.attr("src", $img.attr('src') + "?" + new Date().getTime());
+              ```
+              </p>
+            </div>
+
+            <div class="footer clearfix">
+              <a href="javascript:;" class="share-link"><i class="icon-share-alt"></i>分享</a>
+              <a href="javascript:;" class="comments"><i class="icon-comment"></i>评论</a>
+            </div>
+          </article>
+        </div>
+      </section>
+      <aside class="slidebar block-show">
+        <div class="widget-wrap">
+          <div class="widget-title">Tags</div>
+          <div class="widget">
+            <ul class="tag-list">
+              <li><a href="javascript:;"><i class="icon-caret-right"></i>Javascript <span>(10)</span></a></li>
+              <li><a href="javascript:;"><i class="icon-caret-right"></i>Css <span>(10)</span></a></li>
+              <li><a href="javascript:;"><i class="icon-caret-right"></i>Html <span>(10)</span></a></li>
+            </ul>
+          </div>
+        </div>
+      </aside>
+    </div>
   </section>
 
-  <footer>
-    <div class="wrapper"></div>
+  <footer class="block-show">
+    <div class="wrapper">
+      <p>© 2015 CodeCook</p>
+      <p>Chrome</p>
+    </div>
   </footer>
+  <script src="http://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
 </body>
 </html>

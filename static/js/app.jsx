@@ -1,3 +1,5 @@
+window.Config = require('./config.jsx');
+
 // 页面布局
 var Layout = require('./layout/layout.jsx');
 
