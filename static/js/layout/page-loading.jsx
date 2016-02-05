@@ -1,7 +1,10 @@
 /**
- * Loading layout
+ * PageLoading layout
+ * 为了增强化验，逻辑已移入了  layout.jsx
  */
-var Loading = React.createClass({
+var Loading = require('../comp/loading.jsx');
+
+var PageLoading = React.createClass({
   getInitialState(){
     return {
       loaded: false
@@ -18,10 +21,10 @@ var Loading = React.createClass({
     var style = this.state.loaded ? { display: 'none' } : { display: 'block' }
     return (
       <div className="page-loading" style={ style }>
-        <div className="loading"></div>
+        <Loading />
       </div>
     );
   }
 });
 
-module.exports = Loading;
+module.exports = PageLoading;

@@ -1,7 +1,8 @@
 #main {
-  .inner { background-color: #FFF; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); height: 100%; }
+  .inner { background-color: #FFF; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); height: 100%; margin-bottom: 40px; }
+  .inner .loading{ padding: 40px 0; }
   .profile {
-    position: absolute; width: 285px; text-align: center; top: 50%; left: 50%; transform: translate(-50%, -50%) scale(0.5);
+    position: absolute; width: 285px; text-align: center; top: 150px; left: 50%; transform: translateX(-50%) scale(0.5);
     .avatar { width: 128px; height: 128px; border-radius: 50%; border: 1px solid #ddd; margin-bottom: 20px; }
     .base-info{ padding: 35px 20px 25px; }
     .name{ font-size: 20px; font-weight: 600; }
@@ -22,7 +23,7 @@
 
   .post-list { width: 690px; margin: 0 auto; opacity: 0; }
 
-  .posts{  }
+  .posts{ }
   .posts img{ width: 100%; display: block; }
   .posts .header{ color: #565a5f; padding: 20px 20px 0; }
   .posts .header h1{ font-size: 28px; font-weight: normal; margin-top: 0; margin-bottom: 10px; }
@@ -30,7 +31,7 @@
   .posts .header .meta span{ margin-right: 10px; }
   .posts .header .meta i{ margin-right: 5px; }
   .posts .header .meta a{color: #9a9ea3;}
-  .posts .article-entry{ padding: 0 20px; }
+  .posts .article-entry{ padding: 0 20px; line-height: 30px; }
   .posts .article-entry p{ margin: 20px 0; }
   .posts .footer{ margin: 0 20px; border-top: 1px solid #eceff2; padding: 20px 0;  }
   .posts .footer a{ float: right; color: #999; margin-left: 20px; font-size: 12px; }
@@ -56,6 +57,6 @@
 }
 
 @keyframes profile{
-  0%{ top: 50%; left: 50%; transform: translate(-50%, -50%) rotateY(0deg) scale(0.5); }
-  100%{ top: 0%; left: 0%; transform: translate(0%, 0%) rotateY(-360deg) scale(1);}
+  0%{ top: 150px; left: 50%; transform: translate(-50%, 0) rotateY(0deg) scale(0.5); }
+  100%{ top: 0; left: 0%; transform: translate(0%, 0) rotateY(-360deg) scale(1);}
 }

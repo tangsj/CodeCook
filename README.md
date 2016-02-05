@@ -1,3 +1,3 @@
 # tangsj.github.io
 
-[Web Site](http://g.tangsj.com)
+[Web Site](http://www.tangsj.com)

@@ -14,11 +14,13 @@ var Nav = React.createClass({
   render(){
     return (
       <nav>
-        { this.props.nav.map((target, index) => {
-          return (
-            <a key={index} onClick={this.itemHandler} href={ target.url || "javascript:;" }>{target.name}</a>
-          )
-        }) }
+        {
+          this.props.nav.map((target, index) => {
+            return (
+              <a key={index} onClick={this.itemHandler} href={ target.url || "javascript:;" }>{target.name}</a>
+            )
+          })
+        }
       </nav>
     );
   }

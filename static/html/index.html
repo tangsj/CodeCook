@@ -122,8 +122,18 @@
   </footer>
 
   <div class="page-loading">
-    <div class="loading"></div>
+    <div class="loading">
+      <i></i><i></i><i></i><i></i><i></i>
+    </div>
   </div>
   <script src="http://cdn.staticfile.org/jquery/2.1.4/jquery.min.js"></script>
+  <script>
+    $(function(){
+      setTimeout(function(){
+        $('.page-loading').hide();
+        $('body').addClass('loaded').removeClass('oh');
+      }, 3000);
+    });
+  </script>
 </body>
 </html>

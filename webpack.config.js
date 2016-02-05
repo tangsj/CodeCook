@@ -45,7 +45,8 @@ module.exports = {
       $: "jquery",
       jQuery: "jquery",
       React: 'react',
-      ReactDOM: 'react-dom'
+      ReactDOM: 'react-dom',
+      hljs: 'highlight.js'
     })
   ]
 }

@@ -2,6 +2,7 @@
 
 @import 'lib/normalize.css';
 @import 'lib/font-awesome.min.css';
+@import 'lib/github.css';
 @import 'lib/common.css';
 
 @import 'comp/header.css';

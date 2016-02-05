@@ -4,6 +4,7 @@
  */
 var Config = {
   staticRoot: location.origin,
+  apiRoot: (location.host == 'www.tangsj.com' ? 'http://www.tangsj.com' : 'http://localhost') + '/services/',
   nav: [
     {
       name: "首页",
