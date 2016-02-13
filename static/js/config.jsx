@@ -3,8 +3,8 @@
  * @type {Object}
  */
 var Config = {
-  staticRoot: location.origin,
-  apiRoot: (location.host == 'www.tangsj.com' ? 'http://www.tangsj.com' : 'http://localhost') + '/services/',
+  staticRoot: location.href.replace(/\/index.html*/, ''),
+  apiRoot: (location.host == 'www.tangsj.com' ? 'http://www.tangsj.com' : (location.protocol + '//' + location.hostname)) + '/services/',
   nav: [
     {
       name: "首页",
@@ -38,7 +38,8 @@ var Config = {
     { name: "Javascript", number: 0 },
     { name: "Css", number: 0 },
     { name: "Html", number: 0 },
-    { name: "Linux", number: 0 }
+    { name: "Linux", number: 0 },
+    { name: "Life", number: 1 },
   ]
 }
 

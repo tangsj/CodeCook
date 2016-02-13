@@ -1,3 +1,10 @@
+---
+title: Ubuntu 安装 Consolas 字体
+date: 2015-04-04 23:39:33
+author: tangsj
+tag: Linux
+---
+
 Consolas是一种专门为编程人员设计的字体，这一字体的特性是所有字母、数字与符号均能非常容易辨认，而且所有字符都具有相同的宽度，让编人员看着 更舒服。但我们用Consolas在显示程序源码时，不可避免要使用中文注释。而Consolas不支持中文，因此中文默认是使用宋体显示的。当使用10点大小的时候，中文就模糊不清了。如果采用斜体显示注释的话，宋体就更加显得支离破碎。
 
 在中文显示上，雅黑字体确实不错，但雅黑不是等宽字体，不能用于源码显示。
@@ -28,4 +35,4 @@ Consolas是一种专门为编程人员设计的字体，这一字体的特性是
 
 之后我们就可以使用新安装的雅黑-Consolas混合字体字体了。
 
-我习惯用Sublime Text编程，在Preferences-> Setting-User 中添加 "font_face": "YaHei Consolas Hybrid" 大功告成。
+我习惯用Sublime Text编程，在Preferences-> Setting-User 中添加 "font_face": "YaHei Consolas Hybrid".

@@ -6,7 +6,14 @@ var Profile = React.createClass({
   getInitialState(){
     var config = Object.create(Config.profile);
 
-    return Object.assign(config, { staticRoot: Config.staticRoot })
+    return Object.assign(config, {
+      staticRoot: Config.staticRoot,
+      tagLength: Config.tags.length,
+      postsLength: 0
+    })
+  },
+  componentDidMount(){
+    // 加载文章数
   },
   render(){
     return (
@@ -22,11 +29,11 @@ var Profile = React.createClass({
 
           <div className="article-info">
             <div className="col">
-              <span>0</span>
+              <span>{ this.state.postsLength }</span>
               <p>POSTS</p>
             </div>
             <div className="col">
-              <span>0</span>
+              <span>{ this.state.tagLength }</span>
               <p>TAGS</p>
             </div>
           </div>

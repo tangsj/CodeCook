@@ -30,7 +30,7 @@ var Main = React.createClass({
     });
   },
   componentDidUpdate(){
-    $('pre code').each(function(i, block) {
+    $('code').each(function(i, block) {
       hljs.highlightBlock(block);
     });
   },
@@ -43,7 +43,7 @@ var Main = React.createClass({
           <Profile />
 
           <section className="post-list block-show">
-            <Loading style={ loadingStyle }/>
+            <Loading style={ loadingStyle } />
             <div className="articles" style={ articleStyle }>
               {
                 this.state.articles.map((post, index) => {
