@@ -15,11 +15,11 @@ var Nav = React.createClass({
       <nav>
         {
           this.props.nav.map((target, index) => {
+            var linkProps = {}
             if( target.url == '/'){
-              return <IndexLink activeClassName="active" key={ `nav-${index}` } to={ { pathname: target.url } }>{ target.name }</IndexLink>
-            }else{
-              return <Link activeClassName="active" key={ `nav-${index}` } to={ { pathname: target.url } }>{ target.name }</Link>
+              linkProps.onlyActiveOnIndex = true;
             }
+            return <Link {...linkProps} activeClassName="active" key={ `nav-${index}` } to={ { pathname: target.url } }>{ target.name }</Link>
           })
         }
       </nav>

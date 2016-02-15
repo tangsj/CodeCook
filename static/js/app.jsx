@@ -4,7 +4,6 @@ if(!Object.assign){
 }
 import Config from 'config';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
-// Home
 import Home from 'layout.home';
 import Main from 'layout.main';
 import NoMatch from 'layout.nomatch';
