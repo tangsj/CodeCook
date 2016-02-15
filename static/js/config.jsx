@@ -3,7 +3,7 @@
  * @type {Object}
  */
 var Config = {
-  staticRoot: location.href.replace(/\/index.html*/, ''),
+  staticRoot: location.origin,
   apiRoot: (location.host == 'www.tangsj.com' ? 'http://www.tangsj.com' : (location.protocol + '//' + location.hostname)) + '/services/',
   nav: [
     {
@@ -12,15 +12,15 @@ var Config = {
     },
     {
       name: "好玩的",
-      url: ""
+      url: "funny"
     },
     {
       name: "标签",
-      url: ""
+      url: "tags"
     },
     {
       name: "关于我",
-      url: ""
+      url: "about"
     }
   ],
   profile: {

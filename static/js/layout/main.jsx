@@ -24,7 +24,6 @@ var Main = React.createClass({
       dataType: 'json'
     }).done((res) => {
       if(res.code == 1){
-        //console.log( decodeURIComponent(res.data[0]) );
         this.setState(Object.assign(this.state, { dataLoaded: true, articles: res.data }));
       }
     });
@@ -34,48 +33,49 @@ var Main = React.createClass({
       hljs.highlightBlock(block);
     });
   },
+  componentWillUnmount() {
+    console.log('main unmount');
+  },
   render(){
     var loadingStyle = this.state.dataLoaded ? { display: 'none' } : { display: 'block' }
     var articleStyle = this.state.dataLoaded ? { display: 'block' } : { display: 'none' }
     return (
-      <section id="main">
-        <div className="wrapper clearfix">
-          <Profile />
+      <div className="wrapper clearfix">
+        <Profile />
 
-          <section className="post-list block-show">
-            <Loading style={ loadingStyle } />
-            <div className="articles" style={ articleStyle }>
+        <section className="post-list block-show">
+          <Loading style={ loadingStyle } />
+          <div className="articles" style={ articleStyle }>
+            {
+              this.state.articles.map((post, index) => {
+                return (
+                  <div className="inner" key={ 'post-' + index }>
+                    <Article post={ post }/>
+                  </div>
+                )
+              })
+            }
+          </div>
+        </section>
+
+        <aside className="slidebar block-show">
+          <Widget name="Tags">
+            <ul className="tag-list">
               {
-                this.state.articles.map((post, index) => {
+                this.state.tags.map((item, index) => {
                   return (
-                    <div className="inner" key={ 'post-' + index }>
-                      <Article post={ post }/>
-                    </div>
-                  )
+                    <li key={'tag-' + index}>
+                      <a href="javascript:;">
+                        <i className="icon-caret-right"></i>{ item.name } <span>({ item.number || 0 })</span>
+                      </a>
+                    </li>
+                  );
                 })
               }
-            </div>
-          </section>
-
-          <aside className="slidebar block-show">
-            <Widget name="Tags">
-              <ul className="tag-list">
-                {
-                  this.state.tags.map((item, index) => {
-                    return (
-                      <li key={'tag-' + index}>
-                        <a href="javascript:;">
-                          <i className="icon-caret-right"></i>{ item.name } <span>({ item.number || 0 })</span>
-                        </a>
-                      </li>
-                    );
-                  })
-                }
-              </ul>
-            </Widget>
-          </aside>
-        </div>
-      </section>
+            </ul>
+          </Widget>
+        </aside>
+      </div>
     );
   }
 });

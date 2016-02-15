@@ -2,23 +2,24 @@
  * Nav comp
  * @return {[type]}     [description]
  */
+import { Link, IndexLink } from 'react-router';
+
 var Nav = React.createClass({
   getDefaultProps(){
     return {
       nav: Config.nav
     }
   },
-  itemHandler(e){
-    alert($(e.target).text());
-  },
   render(){
     return (
       <nav>
         {
           this.props.nav.map((target, index) => {
-            return (
-              <a key={index} onClick={this.itemHandler} href={ target.url || "javascript:;" }>{target.name}</a>
-            )
+            if( target.url == '/'){
+              return <IndexLink activeClassName="active" key={ `nav-${index}` } to={ { pathname: target.url } }>{ target.name }</IndexLink>
+            }else{
+              return <Link activeClassName="active" key={ `nav-${index}` } to={ { pathname: target.url } }>{ target.name }</Link>
+            }
           })
         }
       </nav>

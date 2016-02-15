@@ -1,12 +1,11 @@
 /**
- * 页面Layout
+ * home layout
  * @return {[type]}     [description]
  */
 var Header = require('./header.jsx');
-var Main = require('./main.jsx');
 var Footer = require('./footer.jsx');
 
-var PageLayout = React.createClass({
+var Home = React.createClass({
   getDefaultProps(){
     return {}
   },
@@ -27,11 +26,15 @@ var PageLayout = React.createClass({
     return (
       <div className={'layout-wrap' + cname}>
         <Header />
-        <Main />
+
+        <section id="main">
+          {this.props.children}
+        </section>
+
         <Footer />
       </div>
     )
   }
 });
 
-module.exports = PageLayout;
+module.exports = Home;
