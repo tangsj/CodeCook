@@ -10,8 +10,9 @@ if(location.host == 'www.tangsj.com'){
 }
 
 var Config = {
-  staticRoot: (!_debug ? 'http://www.tangsj.com/' : `${location.protocol}//${location.hostname}/` ),
-  apiRoot: (!_debug ? 'http://www.tangsj.com/services/' : `${location.protocol}//${location.hostname}/services/`),
+  staticRoot: (!_debug ? 'http://www.tangsj.com/' : `${location.origin}/` ),
+  apiRoot: (!_debug ? 'http://api.tangsj.com/' : `${location.protocol}//${location.hostname}/services/`),
+  imgRoot: (!_debug ? 'http://upload.tangsj.com/' : `${location.origin}/uploads/`),
   nav: [
     {
       name: "首页",
@@ -39,7 +40,7 @@ var Config = {
     github: 'http://github.com/tangsj',
     weibo: 'http://weibo.com/u/2337863121',
     google: 'https://plus.google.com/103636345185627159316',
-    avatar: 'dest/images/avatar.jpg'
+    avatar: 'avatar.jpg'
   },
   tags: [
     { name: "Javascript", number: 0 },

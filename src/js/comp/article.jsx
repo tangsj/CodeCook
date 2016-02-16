@@ -15,7 +15,7 @@ var Article = React.createClass({
 
     var imgs = [];
     if(!!this.props.post.meta.figure){
-      imgs.push(<img key="img" src={Config.staticRoot + this.props.post.meta.figure} alt={this.props.post.meta.title } />);
+      imgs.push(<img key="img" src={Config.imgRoot + this.props.post.meta.figure} alt={this.props.post.meta.title } />);
     }
 
     return (

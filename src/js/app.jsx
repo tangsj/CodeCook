@@ -2,6 +2,9 @@
 if(!Object.assign){
   alert('浏览器太老了，您该更换新的了！！！');
 }
+// 站点样式
+require('../css/main.min.css');
+
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import Home from 'layout.home';
 import Main from 'layout.main';

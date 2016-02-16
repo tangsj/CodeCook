@@ -1,5 +1,5 @@
 ---
-figure: uploads/shoes.jpg
+figure: shoes.jpg
 title: CodeCook
 date: 2016-02-05 17:43:19
 author: tangsj

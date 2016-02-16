@@ -2,6 +2,7 @@ var path           = require('path');
 var webpack        = require('webpack');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var HtmlWebpackPlugin = require('html-webpack-plugin');
+var ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 var webpackConfig = {
   entry: {
@@ -9,8 +10,9 @@ var webpackConfig = {
   },
   output: {
     path: path.resolve(__dirname, 'dest'),
-    publicPath: 'http://localhost:8080/dest/',
-    filename: 'js/app.js',
+    publicPath: 'http://www.tangsj.com/',
+    //publicPath: 'http://localhost:8080/',
+    filename: 'js/[hash:8].[name].js',
     sourceMapFilename: '[file].map'
   },
   resolve: {
@@ -34,6 +36,14 @@ var webpackConfig = {
   module: {
     loaders: [
       {
+        test: /\.(jpg|png|gif)$/i,
+        loader: 'file?limit=10000&name=images/[hash:8].[name].[ext]'
+      },
+      {
+        test: /\.(woff|eot|ttf|woff2|svg|otf)$/i,
+        loader: 'file?limit=10000&name=font/[hash:8].[name].[ext]'
+      },
+      {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
         loader: 'babel',
@@ -42,12 +52,17 @@ var webpackConfig = {
         }
       },
       {
+        test: /\.css$/,
+        loader: ExtractTextPlugin.extract('style-loader', 'css-loader')
+      },
+      {
         test: /\.json$/,
         loader: 'json'
       }
     ]
   },
   plugins: [
+    new ExtractTextPlugin('css/[contenthash:8].[name].css'),
     new webpack.HotModuleReplacementPlugin(),
     new uglifyJsPlugin({
       compress: {
@@ -63,8 +78,13 @@ var webpackConfig = {
       Config: 'config'
     }),
     new HtmlWebpackPlugin({
-      filename: 'index.html',
-      template: 'index.html'
+      inject: 'body',
+      template: 'src/index.html',
+      favicon: 'src/favicon.ico',
+      minify: {
+        removeComments: true,
+        collapseWhitespace: true
+      }
     })
   ]
 }

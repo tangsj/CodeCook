@@ -7,7 +7,6 @@ var Profile = React.createClass({
     var config = Object.create(Config.profile);
 
     return Object.assign(config, {
-      staticRoot: Config.staticRoot,
       tagLength: Config.tags.length,
       postsLength: 0
     })
@@ -20,7 +19,7 @@ var Profile = React.createClass({
       <aside className="profile">
         <div className="inner">
           <div className="base-info">
-            <img src={ this.state.staticRoot + this.state.avatar } className="avatar" alt={ this.state.fullName } title={ this.state.fullName } />
+            <img src={ Config.imgRoot + this.state.avatar } className="avatar" alt={ this.state.fullName } title={ this.state.fullName } />
             <h2 className="name">{ this.state.name }</h2>
             <h3 className="title">{ this.state.job }</h3>
             <div className="location"><i className="icon-map-marker"></i>{ this.state.address }</div>

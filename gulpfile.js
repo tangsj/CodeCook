@@ -12,6 +12,15 @@ const csswring     = require('csswring');                    // css minify
 const nested       = require('postcss-nested');              // 支持css嵌套
 const rename       = require('gulp-rename');                 // 文件重命名
 const webpackDevServer = require('webpack-dev-server');
+const clean = require('gulp-clean');
+
+/**
+ * clean
+ */
+gulp.task('clean', () => {
+  return gulp.src('dest', {read: false})
+    .pipe(clean());
+});
 
 /**
  * postcss
@@ -30,7 +39,6 @@ gulp.task('postcss', () => {
           .pipe(gulp_postcss(processors))
           .on('error', errorHandler)
           .pipe(rename({suffix: ".min"}))
-          .pipe(gulp.dest('./dest/css'))
           .pipe(gulp.dest('./src/css'))
 });
 
@@ -62,7 +70,7 @@ gulp.task("webpack-dev-server", function(callback) {
   var compiler = webpack(config);
   new webpackDevServer(compiler, {
     hot: true,
-    publicPath: config.output.publicPath,
+    //publicPath: config.output.publicPath,
     stats: {
       colors: true
     }
@@ -71,23 +79,6 @@ gulp.task("webpack-dev-server", function(callback) {
     gutil.log("[webpack-dev-server]", "http://localhost:8080/webpack-dev-server/");
   });
 });
-
-/**
- * images copy
- */
-gulp.task('images', () => {
-  return gulp.src('./src/images/**/*.*')
-          .pipe(gulp.dest('./dest/images'))
-});
-
-/**
- * font copy
- */
-gulp.task('font', () => {
-  return gulp.src('./src/font/**/*.*')
-          .pipe(gulp.dest('./dest/font'))
-});
-
 /**
  * watch task
  */
@@ -102,7 +93,7 @@ gulp.task('watch', () => {
  * quick
  */
 gulp.task('dev', ['webpack-dev-server', 'watch']);
-gulp.task('build', ['postcss', 'webpack:build', 'font', 'images']);
+gulp.task('build', ['clean', 'postcss', 'webpack:build']);
 gulp.task('default', ['postcss', 'watch']);
 
 function errorHandler(error) {
