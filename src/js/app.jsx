@@ -2,7 +2,6 @@
 if(!Object.assign){
   alert('浏览器太老了，您该更换新的了！！！');
 }
-import Config from 'config';
 import { Router, Route, browserHistory, IndexRoute } from 'react-router'
 import Home from 'layout.home';
 import Main from 'layout.main';

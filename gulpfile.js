@@ -26,12 +26,12 @@ gulp.task('postcss', () => {
       removeAllComments: true
     })
   ];
-  return gulp.src('./static/css/main.css')
+  return gulp.src('./src/css/main.css')
           .pipe(gulp_postcss(processors))
           .on('error', errorHandler)
           .pipe(rename({suffix: ".min"}))
           .pipe(gulp.dest('./dest/css'))
-          .pipe(gulp.dest('./static/css'))
+          .pipe(gulp.dest('./src/css'))
 });
 
 /**
@@ -76,7 +76,7 @@ gulp.task("webpack-dev-server", function(callback) {
  * images copy
  */
 gulp.task('images', () => {
-  return gulp.src('./static/images/**/*.*')
+  return gulp.src('./src/images/**/*.*')
           .pipe(gulp.dest('./dest/images'))
 });
 
@@ -84,7 +84,7 @@ gulp.task('images', () => {
  * font copy
  */
 gulp.task('font', () => {
-  return gulp.src('./static/font/**/*.*')
+  return gulp.src('./src/font/**/*.*')
           .pipe(gulp.dest('./dest/font'))
 });
 
@@ -93,8 +93,8 @@ gulp.task('font', () => {
  */
 gulp.task('watch', () => {
   gulp.watch([
-    './static/css/**/*.css',
-    '!./static/css/main.min.css'
+    './src/css/**/*.css',
+    '!./src/css/main.min.css'
   ], ['postcss', 'images']);
 });
 

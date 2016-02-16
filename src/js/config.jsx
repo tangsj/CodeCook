@@ -2,9 +2,16 @@
  * 站点通用配置
  * @type {Object}
  */
+
+var _debug = true;
+
+if(location.host == 'www.tangsj.com'){
+  _debug = false;
+}
+
 var Config = {
-  staticRoot: location.origin,
-  apiRoot: (location.host == 'www.tangsj.com' ? 'http://www.tangsj.com' : (location.protocol + '//' + location.hostname)) + '/services/',
+  staticRoot: (!_debug ? 'http://www.tangsj.com/' : `${location.protocol}//${location.hostname}/` ),
+  apiRoot: (!_debug ? 'http://www.tangsj.com/services/' : `${location.protocol}//${location.hostname}/services/`),
   nav: [
     {
       name: "首页",
@@ -32,7 +39,7 @@ var Config = {
     github: 'http://github.com/tangsj',
     weibo: 'http://weibo.com/u/2337863121',
     google: 'https://plus.google.com/103636345185627159316',
-    avatar: '/dest/images/avatar.jpg'
+    avatar: 'dest/images/avatar.jpg'
   },
   tags: [
     { name: "Javascript", number: 0 },

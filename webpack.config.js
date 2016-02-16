@@ -1,10 +1,11 @@
 var path           = require('path');
 var webpack        = require('webpack');
 var uglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
+var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 var webpackConfig = {
   entry: {
-    app: ['./static/js/app.jsx']
+    app: ['./src/js/app.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dest'),
@@ -14,7 +15,7 @@ var webpackConfig = {
   },
   resolve: {
     root: [
-      path.join(__dirname, 'static', 'js'),
+      path.join(__dirname, 'src', 'js'),
       path.join(__dirname, 'node_modules')
     ],
     //配置别名，在项目中可缩减引用路径
@@ -60,6 +61,10 @@ var webpackConfig = {
       ReactDOM: 'react-dom',
       hljs: 'highlight.js',
       Config: 'config'
+    }),
+    new HtmlWebpackPlugin({
+      filename: 'index.html',
+      template: 'index.html'
     })
   ]
 }
