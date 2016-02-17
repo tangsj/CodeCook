@@ -1,7 +1,9 @@
 "use strict"
+
 const gutil        = require('gulp-util');
 const webpack      = require('webpack');
 const webpackConfig= require('./webpack.config.js');
+const webpackDevConfig= require('./webpack.dev.config.js');
 const gulp         = require('gulp');
 const postcss      = require('postcss');
 const gulp_postcss = require('gulp-postcss');
@@ -61,8 +63,8 @@ gulp.task('webpack:build', callback => {
 /**
  * webpack dev server
  */
-gulp.task("webpack-dev-server", function(callback) {
-  var config = Object.create(webpackConfig);
+gulp.task("webpack-dev-server", callback => {
+  var config = Object.create(webpackDevConfig);
   config.devtool = "source-map";
 
   config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080", "webpack/hot/dev-server");
@@ -86,7 +88,7 @@ gulp.task('watch', () => {
   gulp.watch([
     './src/css/**/*.css',
     '!./src/css/main.min.css'
-  ], ['postcss', 'images']);
+  ], ['postcss']);
 });
 
 /**
@@ -94,7 +96,9 @@ gulp.task('watch', () => {
  */
 gulp.task('dev', ['webpack-dev-server', 'watch']);
 gulp.task('build', ['clean', 'postcss', 'webpack:build']);
-gulp.task('default', ['postcss', 'watch']);
+gulp.task('default', () => {
+  console.log('缺少指令！please use:  [gulp dev] OR  [gulp build]');
+});
 
 function errorHandler(error) {
   console.log(error.message);
