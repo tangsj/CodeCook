@@ -1,18 +1,23 @@
 @font-face {
-  font-family: 'open sans';
+  font-family: 'Open Sans';
   src: url('../font/opensans-webfont.eot');
   src: url('../font/opensans-webfont.eot?#iefix') format('embedded-opentype'),
-       url('../font/opensans-webfont.woff2') format('woff2'),
-       url('../font/opensans-webfont.woff') format('woff'),
-       url('../font/opensans-webfont.ttf') format('truetype'),
-       url('../font/opensans-webfont.svg#open sans') format('svg');
+  url('../font/opensans-webfont.woff') format('woff'),
+  url('../font/opensans-webfont.ttf') format('truetype'),
+  url('../font/opensans-webfont.svg#fontawesomeregular') format('svg');
   font-weight: normal;
   font-style: normal;
 }
 
 *{ box-sizing: border-box; margin: 0; padding: 0; }
 html, body, #app-entry{ height: 100%; }
-body{ background-color: #f5f8f9; font: 14px "open sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif; color: #565a5f; min-width: 1320px; }
+body {
+  background-color: #f5f8f9;
+  font: 14px "Open Sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif;
+  color: #565a5f;
+  min-width: 1320px;
+  -webkit-font-smoothing: antialiased;
+}
 a{ text-decoration: none; color: #565a5f; }
 a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 .clearfix:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; font-size: 0;}

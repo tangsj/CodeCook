@@ -12,7 +12,7 @@ if(location.host == 'www.tangsj.com'){
 var Config = {
   staticRoot: (!_debug ? 'http://www.tangsj.com/' : `${location.origin}/` ),
   apiRoot: (!_debug ? 'http://api.tangsj.com/' : `${location.protocol}//${location.hostname}/services/`),
-  imgRoot: (!_debug ? 'http://upload.tangsj.com/' : `${location.origin}/uploads/`),
+  imgRoot: (!_debug ? 'http://upload.tangsj.com/' : `${location.protocol}//${location.hostname}/uploads/`),
   nav: [
     {
       name: "首页",

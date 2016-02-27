@@ -5,6 +5,9 @@
 import { Link, IndexLink } from 'react-router';
 
 var Nav = React.createClass({
+  propTypes: {
+    nav: React.PropTypes.array.isRequired
+  },
   getDefaultProps(){
     return {
       nav: Config.nav

@@ -20,7 +20,7 @@ var makeConfig = options => {
         path.join(__dirname, 'src', 'js'),
         path.join(__dirname, 'node_modules')
       ],
-      //配置别名，在项目中可缩减引用路径
+      //配置别名，在项目中可缩减引用路径 【可以读取文件夹动态生成】
       alias: {
         // 3rd lib
         'jquery' : 'jquery/dist/jquery.min.js',
