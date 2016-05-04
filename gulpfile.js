@@ -1,20 +1,19 @@
 "use strict"
 
-const gutil        = require('gulp-util');
-const webpack      = require('webpack');
-const webpackConfig= require('./webpack.config.js');
-const webpackDevConfig= require('./webpack.dev.config.js');
-const gulp         = require('gulp');
-const postcss      = require('postcss');
-const gulp_postcss = require('gulp-postcss');
-const autoprefixer = require('autoprefixer');                // 浏览器前缀
-const mqpacker     = require('css-mqpacker');                // MQ 包装器
-const cssimport    = require('postcss-import');              // css import
-const csswring     = require('csswring');                    // css minify
-const nested       = require('postcss-nested');              // 支持css嵌套
-const rename       = require('gulp-rename');                 // 文件重命名
+const gutil            = require('gulp-util');
+const webpack          = require('webpack');
+const webpackConfig    = require('./webpack.config.js');
+const gulp             = require('gulp');
+const postcss          = require('postcss');
+const gulp_postcss     = require('gulp-postcss');
+const autoprefixer     = require('autoprefixer');                // 浏览器前缀
+const mqpacker         = require('css-mqpacker');                // MQ 包装器
+const cssimport        = require('postcss-import');              // css import
+const csswring         = require('csswring');                    // css minify
+const nested           = require('postcss-nested');              // 支持css嵌套
+const rename           = require('gulp-rename');                 // 文件重命名
 const webpackDevServer = require('webpack-dev-server');
-const clean = require('gulp-clean');
+const clean            = require('gulp-clean');
 
 /**
  * clean
@@ -63,7 +62,7 @@ gulp.task('webpack:build', callback => {
  * webpack dev server
  */
 gulp.task("webpack-dev-server", callback => {
-  var config = Object.create(webpackDevConfig);
+  var config = Object.create(webpackConfig);
   config.devtool = "source-map";
 
   config.entry.app.unshift("webpack-dev-server/client?http://localhost:8080", "webpack/hot/dev-server");
@@ -94,7 +93,7 @@ gulp.task('watch', () => {
  * quick
  */
 gulp.task('dev', ['webpack-dev-server', 'watch']);
-gulp.task('build', ['clean', 'postcss', 'webpack:build']);
+gulp.task('build', ['clean', 'webpack:build']);
 gulp.task('default', () => {
   console.log('缺少指令！please use:  [gulp dev] OR  [gulp build]');
 });

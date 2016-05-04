@@ -4,8 +4,8 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "gulp dev",
-    "build": "gulp build"
+    "dev": "set NODE_ENV=development && gulp dev",
+    "build": "set NODE_ENV=production && gulp build"
   },
   "repository": {
     "type": "git",
