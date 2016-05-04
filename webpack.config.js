@@ -27,15 +27,6 @@ module.exports = {
     ],
     //配置别名，在项目中可缩减引用路径 【可以读取文件夹动态生成】
     alias: {
-      // 3rd lib
-      'jquery' : 'jquery/dist/jquery.min.js',
-      // site config
-      'config': 'config.jsx',
-      // layout tpl
-      'layout.home': 'layout/home.jsx',
-      'layout.main': 'layout/main.jsx',
-      'layout.nomatch': 'layout/nomatch.jsx',
-      'layout.about': 'layout/about.jsx'
     }
   },
   module: {
@@ -85,12 +76,9 @@ module.exports = {
       }
     }),
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jQuery: "jquery",
       React: 'react',
       ReactDOM: 'react-dom',
-      hljs: 'highlight.js',
-      Config: 'config'
+      hljs: 'highlight.js'
     }),
     new HtmlWebpackPlugin({
       inject: 'body',

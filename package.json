@@ -11,6 +11,13 @@
     "type": "git",
     "url": "git+https://github.com/tangsj/CodeCook.git"
   },
+  "dependencies": {
+    "object-assign": "^4.1.0",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
+    "react-router": "^2.0.0",
+    "highlight.js": "^9.1.0"
+  },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "babel-core": "^6.4.0",
@@ -27,17 +34,12 @@
     "gulp-postcss": "^6.0.1",
     "gulp-rename": "^1.2.2",
     "gulp-util": "^3.0.7",
-    "highlight.js": "^9.1.0",
     "html-webpack-plugin": "^2.8.1",
-    "jquery": "^2.2.0",
     "json-loader": "^0.5.4",
     "postcss": "^5.0.14",
     "postcss-import": "^8.0.2",
     "postcss-loader": "^0.8.0",
     "postcss-nested": "^1.0.0",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-router": "^2.0.0",
     "source-map": "^0.5.3",
     "style-loader": "^0.13.0",
     "url-loader": "^0.5.7",
