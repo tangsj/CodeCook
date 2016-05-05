@@ -6,7 +6,10 @@
   "scripts": {
     "dev": "export NODE_ENV=development && export MODE=localhost:8080 && gulp dev",
     "build:local": "export NODE_ENV=production && export MODE=localhost:8007 && gulp build",
-    "build:server": "export NODE_ENV=production && export MODE=www.tangsj.com && gulp build"
+    "build:server": "export NODE_ENV=production && export MODE=www.tangsj.com && gulp build",
+    "dev-win": "set NODE_ENV=development && set MODE=localhost:8080 && gulp dev",
+    "build-win:local": "set NODE_ENV=production && set MODE=localhost:8007 && gulp build",
+    "build-win:server": "set NODE_ENV=production && set MODE=www.tangsj.com && gulp build"
   },
   "repository": {
     "type": "git",
@@ -20,7 +23,8 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
     "redux": "^3.5.2",
-    "redux-thunk": "^2.0.1"
+    "redux-thunk": "^2.0.1",
+    "superagent": "^1.8.3"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

@@ -2,54 +2,11 @@
  * 站点通用配置
  * @type {Object}
  */
+let __debug__ = !(location.hostname == 'tangsj.com');
 
-var _debug = true;
-
-if(location.host == 'www.tangsj.com'){
-  _debug = false;
+export default {
+  staticRoot: ( __debug__ ? 'http://localhost:8080' : 'http://www.tangsj.com/' ),
+  postRoot: ( __debug__ ? 'http://localhost:8008/posts/' : 'http://api.tangsj.com/'),
+  dataRoot: ( __debug__ ? 'http://localhost:8008/datas/' : 'http://api.tangsj.com/'),
+  imgRoot: ( __debug__ ? 'http://localhost:8008/uploads/' : 'http://upload.tangsj.com/')
 }
-
-var Config = {
-  staticRoot: (!_debug ? 'http://www.tangsj.com/' : `${location.origin}/` ),
-  apiRoot: (!_debug ? 'http://api.tangsj.com/' : `${location.protocol}//${location.hostname}/services/`),
-  imgRoot: (!_debug ? 'http://upload.tangsj.com/' : `${location.protocol}//${location.hostname}/uploads/`),
-  nav: [
-    {
-      name: "首页",
-      url: "/"
-    },
-    {
-      name: "好玩的",
-      url: "funny"
-    },
-    {
-      name: "标签",
-      url: "tags"
-    },
-    {
-      name: "关于我",
-      url: "about"
-    }
-  ],
-  profile: {
-    name: 'CodeCook',
-    fullName: '汤世俊',
-    mail: 't_fate@163.com',
-    job: 'Web Developer',
-    address: 'Chongqing, China',
-    github: 'http://github.com/tangsj',
-    weibo: 'http://weibo.com/u/2337863121',
-    google: 'https://plus.google.com/103636345185627159316',
-    avatar: 'avatar.jpg'
-  },
-  tags: [
-    { name: "Javascript", number: 0 },
-    { name: "Css", number: 0 },
-    { name: "Html", number: 0 },
-    { name: "Linux", number: 0 },
-    { name: "Life", number: 1 },
-  ]
-}
-
-
-module.exports = Config;

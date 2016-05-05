@@ -1,4 +1,5 @@
 import assign from 'object-assign';
+import * as types from 'actions/author';
 
 const initialState = {
   name: '', // 花名
@@ -14,8 +15,8 @@ const initialState = {
 
 export default function Author(state = initialState, action){
   switch(action.type){
-    case 'update-author-info':
-      return state
+    case types.UPDATE_AUTHOR_INFO:
+      return assign({}, state, action.author)
     default:
       return state;
   }
