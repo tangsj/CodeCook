@@ -18,9 +18,9 @@ export function updateAuthor(author){
 export function fetchAuthor(){
   return dispatch => {
     request
-      .get(`${Config.dataRoot}/author.json`)
+      .get(`${Config.dataRoot}author.json`)
       .end(function(err, response){
-        if(!err){
+        if(!err && response.ok){
           dispatch(updateAuthor(response.body));
         }
       });
