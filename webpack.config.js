@@ -10,13 +10,13 @@ const uglifyJsPlugin      = webpack.optimize.UglifyJsPlugin;
 
 const env = process.env.NODE_ENV || 'development';
 
-module.exports = {
+var webpackConfig = {
   entry: {
     app: ['./src/js/app.jsx']
   },
   output: {
     path: path.resolve(__dirname, 'dest'),
-    publicPath: (env == 'development' ? 'http://localhost:8080/' : 'http://www.tangsj.com'),
+    publicPath: `http://${process.env.MODE}/`,
     filename: 'js/[hash:8].[name].js',
     sourceMapFilename: '[file].map'
   },
@@ -25,6 +25,7 @@ module.exports = {
       path.join(__dirname, 'src', 'js'),
       path.join(__dirname, 'node_modules')
     ],
+    extensions: ['', '.json', '.js', '.jsx'],
     //配置别名，在项目中可缩减引用路径 【可以读取文件夹动态生成】
     alias: {
     }
@@ -42,10 +43,7 @@ module.exports = {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loader: 'babel',
-        query: {
-          presets: ['es2015', 'react']
-        }
+        loader: 'babel'
       },
       {
         test: /\.css$/,
@@ -68,13 +66,8 @@ module.exports = {
       ];
   },
   plugins: [
-    new ExtractTextPlugin('css/[contenthash:8].[name].css'),
     new webpack.HotModuleReplacementPlugin(),
-    new uglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
+    new ExtractTextPlugin('css/[contenthash:8].[name].css'),
     new webpack.ProvidePlugin({
       React: 'react',
       ReactDOM: 'react-dom',
@@ -88,7 +81,26 @@ module.exports = {
         removeComments: true,
         collapseWhitespace: true
       }
-    }),
-    new webpack.NoErrorsPlugin()
+    })
   ]
 }
+
+// 生产环境定义
+if(env == 'production'){
+  var productPlugins = [
+    new uglifyJsPlugin({
+      compress: {
+        warnings: false
+      }
+    }),
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: '"production"'
+      }
+    }),
+    new webpack.NoErrorsPlugin()
+  ];
+  webpackConfig.plugins = webpackConfig.plugins.concat(productPlugins);
+}
+
+module.exports = webpackConfig;

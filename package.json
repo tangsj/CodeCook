@@ -4,26 +4,32 @@
   "description": "",
   "main": "gulpfile.js",
   "scripts": {
-    "dev": "set NODE_ENV=development && gulp dev",
-    "build": "set NODE_ENV=production && gulp build"
+    "dev": "export NODE_ENV=development && export MODE=localhost:8080 && gulp dev",
+    "build:local": "export NODE_ENV=production && export MODE=localhost:8007 && gulp build",
+    "build:server": "export NODE_ENV=production && export MODE=www.tangsj.com && gulp build"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/tangsj/CodeCook.git"
   },
   "dependencies": {
+    "highlight.js": "^9.1.0",
     "object-assign": "^4.1.0",
     "react": "^0.14.6",
     "react-dom": "^0.14.6",
+    "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
-    "highlight.js": "^9.1.0"
+    "redux": "^3.5.2",
+    "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "babel-core": "^6.4.0",
     "babel-loader": "^6.2.1",
+    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
+    "babel-preset-stage-0": "^6.5.0",
     "css-loader": "^0.23.1",
     "css-mqpacker": "^4.0.0",
     "csswring": "^4.2.1",
