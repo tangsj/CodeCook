@@ -1,0 +1,18 @@
+[
+  {
+    "text": "首页",
+    "link": "/"
+  },
+  {
+    "text": "React",
+    "link": "/react"
+  },
+  {
+    "text": "Webpack",
+    "link": "/webpack"
+  },
+  {
+    "text": "关于我",
+    "link": "/about"
+  }
+]

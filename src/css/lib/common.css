@@ -35,11 +35,3 @@ a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
   0%, 100%{ tarnsform: scaleY(1); }
   50%{ transform: scaleY(.4); }
 }
-
-/* Block Show */
-.block-show{ opacity: 0;}
-.loaded .block-show{ animation: blockshow 1s ease forwards 1s; }
-@keyframes blockshow{
-  0%{ opacity: 0; }
-  100%{ opacity: 1; }
-}

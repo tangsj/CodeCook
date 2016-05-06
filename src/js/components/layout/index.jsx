@@ -5,6 +5,7 @@
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import * as authorActions from 'actions/author';
+import Header from 'components/layout/header.jsx';
 
 @connect(
   state => ({ author: state.author}),
@@ -19,7 +20,15 @@ class App extends React.Component {
       this.props.fetchAuthor();
     }
     render() {
-        return <div>App Author. { JSON.stringify( this.props.author) }</div>;
+        return (
+          <div>
+            <Header />
+            {
+              this.props.children
+            }
+            <div className="wrapper">App Author. { JSON.stringify( this.props.author) }</div>
+          </div>
+        )
     }
 }
 
