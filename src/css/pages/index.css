@@ -2,7 +2,7 @@
   .inner { background-color: #FFF; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); height: 100%; margin-bottom: 40px; }
   .inner .loading{ padding: 40px 0; }
   .profile {
-    position: absolute; width: 285px; text-align: center; top: 150px; left: 50%; transform: translateX(-50%) scale(0.5);
+    position: absolute; width: 285px; text-align: center;
     .avatar { width: 128px; height: 128px; border-radius: 50%; border: 1px solid #ddd; margin-bottom: 20px; }
     .base-info{ padding: 35px 20px 25px; }
     .name{ font-size: 20px; font-weight: 600; }
@@ -21,7 +21,7 @@
     .contact-info a:hover:after { top: -12px; right: 8px; border: solid; border-color: #333 transparent; border-width: 5px 5px 0 5px; content: ""; display: block; position: absolute; z-index: 2; }
   }
 
-  .post-list { width: 690px; margin: 0 auto; opacity: 0; }
+  .post-list { width: 690px; margin: 0 auto; }
 
   .posts{ }
   .posts img{ width: 100%; display: block; }
@@ -38,7 +38,7 @@
   .posts .footer a:hover{ color: #38B7EA; }
   .posts .footer i{ margin-right: 5px; }
 
-  .slidebar { position: absolute; top: 0; right: 0; height: 100px; width: 285px; opacity: 0; }
+  .slidebar { position: absolute; top: 0; right: 0; height: 100px; width: 285px; }
   .slidebar .widget-wrap{ margin: 40px 0; }
   .slidebar .widget-wrap:first-child{ margin-top: 0; }
   .slidebar .widget-title { text-decoration: none; text-transform: uppercase; color: #999;  }
@@ -51,7 +51,7 @@
   .tag-list li a i{ margin-right: 5px; }
   .tag-list li a span{ font-size: 12px; }
 }
-
+/*
 .loaded .profile{
   animation: profile 1s ease forwards 0.3s ;
 }
@@ -60,3 +60,4 @@
   0%{ top: 150px; left: 50%; transform: translate(-50%, 0) rotateY(0deg) scale(0.5); }
   100%{ top: 0; left: 0%; transform: translate(0%, 0) rotateY(-360deg) scale(1);}
 }
+*/

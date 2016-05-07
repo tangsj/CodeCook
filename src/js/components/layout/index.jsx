@@ -1,35 +1,24 @@
 /**
- * App Root
+ * 首页内容
  * @author tangsj
  */
-import {connect} from 'react-redux';
-import {bindActionCreators} from 'redux';
-import * as authorActions from 'actions/author';
-import Header from 'components/layout/header.jsx';
+import Profile from 'components/layout/profile';
+import Tag from 'components/layout/tag';
 
-@connect(
-  state => ({ author: state.author}),
-  dispatch => bindActionCreators(authorActions, dispatch)
-)
-class App extends React.Component {
+class Index extends React.Component {
     constructor(props) {
         super(props);
-        this.displayName = 'App';
-    }
-    componentDidMount() {
-      this.props.fetchAuthor();
+        this.displayName = 'Index';
     }
     render() {
         return (
-          <div>
-            <Header />
-            {
-              this.props.children
-            }
-            <div className="wrapper">App Author. { JSON.stringify( this.props.author) }</div>
+          <div className="wrapper">
+            <Profile />
+
+            <Tag />
           </div>
-        )
+        );
     }
 }
 
-export default App;
+export default Index;

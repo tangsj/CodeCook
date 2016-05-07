@@ -22,13 +22,14 @@ const buildStore = compose(
 const store = buildStore(rootReducer, {});
 
 // 引入布局类型components
-import App from 'components/layout/index';
+import App from 'components/index';
+import Index from 'components/layout/index';
 
 ReactDOM.render((
   <Provider store={ store }>
     <Router history={ browserHistory }>
-      <Route path="/" component={App}>
-
+      <Route path="/" component={ App }>
+        <IndexRoute component={ Index } />
       </Route>
     </Router>
   </Provider>
