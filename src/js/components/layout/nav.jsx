@@ -12,22 +12,22 @@ import * as navActions from 'actions/nav';
 )
 class Nav extends React.Component {
     constructor(props) {
-        super(props);
-        this.displayName = 'Nav';
+      super(props);
+      this.displayName = 'Nav';
     }
     componentDidMount() {
-        this.props.fetchNav();
+      this.props.fetchNav();
     }
     render() {
-        return (
-          <nav>
-            {
-              this.props.nav.map(function(item, index){
-                return <a href="javascript:;" key={ `nav_${index}` }>{ item.text }</a>
-              })
-            }
-          </nav>
-        );
+      return (
+        <nav>
+          {
+            this.props.nav.map(function(item, index){
+              return <a href="javascript:;" key={ `nav_${index}` }>{ item.text }</a>
+            })
+          }
+        </nav>
+      );
     }
 }
 

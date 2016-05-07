@@ -9,18 +9,18 @@ import { connect } from 'react-redux';
 )
 class Footer extends React.Component {
     constructor(props) {
-        super(props);
-        this.displayName = 'Footer';
+      super(props);
+      this.displayName = 'Footer';
     }
     render() {
-        return (
-          <footer>
-            <div className="wrapper">
-              <p>© 2015 { this.props.author.name }</p>
-              <p>Chrome</p>
-            </div>
-          </footer>
-        );
+      return (
+        <footer>
+          <div className="wrapper">
+            <p>© 2015 { this.props.author.name }</p>
+            <p>Chrome</p>
+          </div>
+        </footer>
+      );
     }
 }
 

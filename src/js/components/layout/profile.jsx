@@ -10,8 +10,8 @@ import { connect } from 'react-redux';
 )
 class Profile extends React.Component {
     constructor(props) {
-        super(props);
-        this.displayName = 'Profile';
+      super(props);
+      this.displayName = 'Profile';
     }
     render() {
       const { author } = this.props;

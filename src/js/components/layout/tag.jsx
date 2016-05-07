@@ -12,8 +12,8 @@ import * as tagActions from 'actions/tag';
 )
 class Tag extends React.Component {
     constructor(props) {
-        super(props);
-        this.displayName = 'Tag';
+      super(props);
+      this.displayName = 'Tag';
     }
     componentDidMount() {
       this.props.fetchTags();

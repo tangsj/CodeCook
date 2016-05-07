@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import author from './author';
 import nav from './nav';
 import tag from './tag';
+import posts from './posts';
 
 const rootReducer = combineReducers({
   // 创建者信息
@@ -9,7 +10,9 @@ const rootReducer = combineReducers({
   // 导航信息
   nav,
   // 标签信息
-  tag
+  tag,
+  // 文章列表信息
+  posts
 });
 
 export default rootReducer;

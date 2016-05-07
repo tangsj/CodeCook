@@ -16,6 +16,7 @@ a{ text-decoration: none; color: #565a5f; }
 a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 .clearfix:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; font-size: 0;}
 .oh{ overflow: hidden; }
+.tc{ text-align: center; }
 
 .wrapper{ width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
 #main{ padding-top: 40px; padding-bottom: 60px; min-height: 600px; }
