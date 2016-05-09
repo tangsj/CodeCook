@@ -1,10 +1,20 @@
 import * as types from 'actions/posts';
-import { fromJS, List } from 'immutable';
+import Immutable from 'immutable';
 
-const initialState = fromJS({
-  postlist: List(), // 文章目录
-  postinfo: List()  // 文章详细
+const initialState = Immutable.fromJS({
+  postlist: Immutable.List(), // 文章目录
+  postinfo: Immutable.List()  // 文章详细
 });
+
+function postInState(infoArray, postinfo){
+
+  infoArray.map( (info, index) => {
+    if(info.get('id') == postinfo.id){
+      return true;
+    }
+  });
+  return false;
+}
 
 export default (state = initialState, action) => {
   switch(action.type){
@@ -12,6 +22,13 @@ export default (state = initialState, action) => {
       return state.merge({
         postlist: action.postlist
       })
+    case types.UPDATE_POST_INFO:
+      console.log(action.postinfo);
+
+      return state.mergeDeep({
+        postinfo: []
+      })
+      return state;
     default:
       return state;
   }

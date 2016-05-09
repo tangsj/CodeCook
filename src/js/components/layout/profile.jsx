@@ -24,7 +24,7 @@ class Profile extends React.Component {
       return true;
     }
     render() {
-      console.log('__Profile render');
+      // console.log('__Profile render');
       const author = this.props.author.toObject();
 
       return (

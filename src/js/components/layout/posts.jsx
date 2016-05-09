@@ -13,9 +13,6 @@ import Config from 'config';
  * @param  {[type]} state [description]
  * @return {[type]}       [description]
  */
-@connect(
-  dispatch => bindActionCreators(postsActions, dispatch)
-)
 class Article extends React.Component {
     constructor(props) {
       super(props);
@@ -27,7 +24,6 @@ class Article extends React.Component {
     _loadPostFigure(figurename){
       let figure = new Image();
       figure.onload = () => {
-        // console.log('加载成功');
         this.setState({
           imgloading: true
         });
@@ -35,18 +31,20 @@ class Article extends React.Component {
       figure.src = Config.imgRoot + figurename;
     }
     shouldComponentUpdate(nextProps, nextState) {
-
-      // console.log('this.state', this.state);
-      // console.log('next.state', nextState);
       if(Immutable.is(this.props.post, nextProps.post) && Immutable.is(this.state, nextState)){
         return false;
       }
       return true;
     }
+    componentDidMount() {
+      console.log('开始拉取文章详情  -  ', this.props.post.toObject());
+
+      this.props.fetchPostInfo(this.props.post.toObject());
+    }
     render() {
-      // console.log('__Article render'); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
+      console.log('__Article render'); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
       const post = this.props.post.toObject();
-      // console.log(this.state);
+
       if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
@@ -81,9 +79,6 @@ class Article extends React.Component {
     }
 }
 
-export default Article;
-
-
 /**
  * 文章列表
  * @param  {[type]} state [description]
@@ -113,8 +108,8 @@ class Posts extends React.Component {
         <section className="post-list ">
           <div className="inner">
             {
-              postlist.map(function(post, index){
-                return <Article post={ post } key={ `post_${index}` }/>
+              postlist.map((post, index) => {
+                return <Article {...this.props} post={ post } key={ `post_${index}` }/>
               })
             }
           </div>
