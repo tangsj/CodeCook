@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as tagActions from 'actions/tag';
 
 @connect(
-  state => ({ tag: state.tag }),
+  state => ({ tag: state.get('tag') }),
   dispatch => bindActionCreators(tagActions, dispatch)
 )
 class Tag extends React.Component {
@@ -19,7 +19,7 @@ class Tag extends React.Component {
       this.props.fetchTags();
     }
     render() {
-      const { tag } = this.props;
+      const tag = this.props.tag.toArray();;
       return (
         <aside className="slidebar">
           <div className="widget-wrap">

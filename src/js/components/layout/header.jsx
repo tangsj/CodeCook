@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 import Nav from './nav';
 
 @connect(
-  state => ({author: state.author})
+  state => ({author: state.get('author')})
 )
 class Header extends React.Component {
   constructor(props) {
@@ -14,10 +14,11 @@ class Header extends React.Component {
     this.displayName = 'Header';
   }
   render() {
+    const author = this.props.author.toObject();
     return (
       <header>
         <div className="wrapper">
-          <a href="javascript:;" className="logo">{ this.props.author.name }</a>
+          <a href="javascript:;" className="logo">{ author.name }</a>
 
           <Nav />
 

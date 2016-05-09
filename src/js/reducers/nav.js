@@ -1,12 +1,12 @@
-import assign from 'object-assign';
+import Immutable from 'immutable';
 import * as types from 'actions/nav';
 
-const initialState = [];
+const initialState = Immutable.List();
 
-export default function nav(state = initialState, action){
+export default (state = initialState, action) => {
   switch(action.type){
     case types.UPDATE_NAV_INFO:
-      return action.nav;
+      return Immutable.List(action.nav);
     default:
       return state;
   }

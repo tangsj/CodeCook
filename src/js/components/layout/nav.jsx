@@ -7,7 +7,7 @@ import { bindActionCreators } from 'redux';
 import * as navActions from 'actions/nav';
 
 @connect(
-  state => ({ nav: state.nav }),
+  state => ({ nav: state.get('nav') }),
   dispatch => bindActionCreators(navActions, dispatch)
 )
 class Nav extends React.Component {
@@ -19,10 +19,11 @@ class Nav extends React.Component {
       this.props.fetchNav();
     }
     render() {
+      const nav = this.props.nav.toArray();
       return (
         <nav>
           {
-            this.props.nav.map(function(item, index){
+            nav.map(function(item, index){
               return <a href="javascript:;" key={ `nav_${index}` }>{ item.text }</a>
             })
           }

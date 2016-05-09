@@ -8,9 +8,8 @@ import * as authorActions from 'actions/author';
 import Header from 'components/layout/header';
 import Footer from 'components/layout/footer';
 
-
 @connect(
-  state => ({ author: state.author}),
+  state => ({ author: state.get('author')}),
   dispatch => bindActionCreators(authorActions, dispatch)
 )
 class App extends React.Component {

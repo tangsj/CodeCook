@@ -11,15 +11,17 @@ import { compose, createStore, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 import rootReducer from './reducers';
+import Immutable from 'immutable';
 
 /**
  * configureStore and buildStore
  */
 const buildStore = compose(
   applyMiddleware(thunk),
-  window.devToolsExtension ? window.devToolsExtension() : undefined // Chrome Redux工具
+  window.devToolsExtension ? window.devToolsExtension() : f => f // Chrome Redux工具
 )(createStore);
-const store = buildStore(rootReducer, {});
+
+const store = buildStore(rootReducer, Immutable.Map());
 
 // 引入布局类型components
 import App from 'components/index';

@@ -4,6 +4,7 @@
  */
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import Immutable from 'immutable';
 import * as postsActions from 'actions/posts';
 import Config from 'config';
 
@@ -26,14 +27,27 @@ class Article extends React.Component {
     _loadPostFigure(figurename){
       let figure = new Image();
       figure.onload = () => {
-        console.log('加载成功');
+        // console.log('加载成功');
+        this.setState({
+          imgloading: true
+        });
       }
       figure.src = Config.imgRoot + figurename;
     }
+    shouldComponentUpdate(nextProps, nextState) {
+
+      // console.log('this.state', this.state);
+      // console.log('next.state', nextState);
+      if(Immutable.is(this.props.post, nextProps.post) && Immutable.is(this.state, nextState)){
+        return false;
+      }
+      return true;
+    }
     render() {
-      console.log('__Article render'); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
-      const { post } = this.props;
-      if(!!post.figure){
+      // console.log('__Article render'); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
+      const post = this.props.post.toObject();
+      // console.log(this.state);
+      if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
       return (
@@ -76,7 +90,7 @@ export default Article;
  * @return {[type]}       [description]
  */
 @connect(
-  state => ({ posts: state.posts }),
+  state => ({ posts: state.get('posts') }),
   dispatch => bindActionCreators(postsActions, dispatch)
 )
 class Posts extends React.Component {
@@ -87,8 +101,14 @@ class Posts extends React.Component {
     componentDidMount() {
       this.props.fetchPostList();
     }
+    shouldComponentUpdate(nextProps, nextState) {
+      // console.log('init props', this.props.posts);
+      // console.log('next props', nextProps.posts);
+      return true;
+    }
     render() {
-      const { postlist } = this.props.posts;
+      const { postlist } = this.props.posts.toObject();
+
       return (
         <section className="post-list ">
           <div className="inner">

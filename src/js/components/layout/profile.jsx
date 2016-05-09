@@ -4,17 +4,29 @@
  */
 import Config from 'config';
 import { connect } from 'react-redux';
+import Immutable from 'immutable';
 
 @connect(
-  state => ({ author: state.author })
+  state => ({ author: state.get('author') })
 )
 class Profile extends React.Component {
     constructor(props) {
       super(props);
       this.displayName = 'Profile';
+      this.state = {
+        a: 1
+      }
+    }
+    shouldComponentUpdate(nextProps, nextState) {
+      if(Immutable.is(this.props.author, nextProps.author)){
+        return false;
+      }
+      return true;
     }
     render() {
-      const { author } = this.props;
+      console.log('__Profile render');
+      const author = this.props.author.toObject();
+
       return (
         <aside className="profile">
           <div className="inner">

@@ -1,4 +1,4 @@
-import { combineReducers } from 'redux';
+import { combineReducers } from 'redux-immutable';
 import author from './author';
 import nav from './nav';
 import tag from './tag';
