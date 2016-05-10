@@ -70,8 +70,7 @@ var webpackConfig = {
     new ExtractTextPlugin('css/[contenthash:8].[name].css'),
     new webpack.ProvidePlugin({
       React: 'react',
-      ReactDOM: 'react-dom',
-      hljs: 'highlight.js'
+      ReactDOM: 'react-dom'
     }),
     new HtmlWebpackPlugin({
       inject: 'body',

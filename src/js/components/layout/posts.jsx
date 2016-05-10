@@ -5,6 +5,7 @@
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
+import ReactMarkdown from 'react-markdown';
 import * as postsActions from 'actions/posts';
 import * as postinfoActions from 'actions/postinfo';
 import Config from 'config';
@@ -48,8 +49,6 @@ class Article extends React.Component {
       const post = this.props.post;
       const postinfo = this.props.postinfo;
 
-      // console.log(post.id, '__Article render', this.props.postinfo); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
-
       if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
@@ -74,7 +73,10 @@ class Article extends React.Component {
 
           <div className="article-entry">
             {
-              postinfo.has(post.id) ? <p className="tc">{ postinfo.get(post.id) }</p> : <p className="tc">加载中...</p>
+              postinfo.has(post.id) ?
+                <ReactMarkdown source={ postinfo.get(post.id) }/>
+              :
+                <p className="tc">加载中...</p>
             }
           </div>
 

@@ -26,12 +26,13 @@ class Profile extends React.Component {
     render() {
       // console.log('__Profile render');
       const author = this.props.author.toObject();
-
       return (
         <aside className="profile">
           <div className="inner">
             <div className="base-info">
-              <img src={ `${Config.imgRoot}${author.avatar}` } className="avatar" alt="" />
+              {
+                !!author.avatar ? <img src={ `${Config.imgRoot}${author.avatar}` } className="avatar" /> : ''
+              }
               <h2 className="name">{ author.name }</h2>
               <h3 className="title">{ author.job }</h3>
               <div className="location">
