@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import * as postsActions from 'actions/posts';
+import * as postinfoActions from 'actions/postinfo';
 import Config from 'config';
 
 /**
@@ -13,6 +14,10 @@ import Config from 'config';
  * @param  {[type]} state [description]
  * @return {[type]}       [description]
  */
+@connect(
+  state => ( { postinfo: state.get('postinfo') } ),
+  dispatch => bindActionCreators(postinfoActions, dispatch)
+)
 class Article extends React.Component {
     constructor(props) {
       super(props);
@@ -31,23 +36,24 @@ class Article extends React.Component {
       figure.src = Config.imgRoot + figurename;
     }
     shouldComponentUpdate(nextProps, nextState) {
-      if(Immutable.is(this.props.post, nextProps.post) && Immutable.is(this.state, nextState)){
+      if(Immutable.is(this.props.postinfo, nextProps.postinfo) && Immutable.is(this.state, nextState)){
         return false;
       }
       return true;
     }
     componentDidMount() {
-      console.log('开始拉取文章详情  -  ', this.props.post.toObject());
-
-      this.props.fetchPostInfo(this.props.post.toObject());
+      this.props.fetchPostInfo(this.props.post);
     }
     render() {
-      console.log('__Article render'); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
-      const post = this.props.post.toObject();
+      const post = this.props.post;
+      const postinfo = this.props.postinfo;
+
+      // console.log(post.id, '__Article render', this.props.postinfo); // 这里被执行了 3次 需要找到原因，猜测是全局的store更新影响
 
       if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
+
       return (
         <article className="posts">
           {
@@ -67,7 +73,9 @@ class Article extends React.Component {
           </div>
 
           <div className="article-entry">
-            <p className="tc">加载中...</p>
+            {
+              postinfo.has(post.id) ? <p className="tc">{ postinfo.get(post.id) }</p> : <p className="tc">加载中...</p>
+            }
           </div>
 
           <div className="footer clearfix">
@@ -97,19 +105,18 @@ class Posts extends React.Component {
       this.props.fetchPostList();
     }
     shouldComponentUpdate(nextProps, nextState) {
-      // console.log('init props', this.props.posts);
-      // console.log('next props', nextProps.posts);
       return true;
     }
     render() {
-      const { postlist } = this.props.posts.toObject();
-
+      const postlist = this.props.posts.toJS();
       return (
         <section className="post-list ">
           <div className="inner">
             {
               postlist.map((post, index) => {
-                return <Article {...this.props} post={ post } key={ `post_${index}` }/>
+                return (
+                  <Article post={ post } key={ `post_${index}` }/>
+                )
               })
             }
           </div>
