@@ -11,6 +11,17 @@ export function resetPostsList(postlist){
     postlist
   }
 }
+
+/**
+ * 清空PostList
+ */
+export const CLEAR_POST_LIST = 'clear-post-list';
+export function cleanPostList(){
+  return {
+    type: CLEAR_POST_LIST
+  }
+}
+
 /**
  * 拉取PostList info
  */

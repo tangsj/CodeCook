@@ -8,6 +8,8 @@ export default (state = initialState, action) => {
     case types.UPDATE_POST_INFO:
       // console.log('更新postinfo: ', action.postinfo);
       return state.merge(action.postinfo);
+    case types.CLEAR_POST_INFO:
+      return state.clear();
     default:
       return state;
   }

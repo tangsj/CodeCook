@@ -2,6 +2,7 @@
  * Nav
  * @author tangsj
  */
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as navActions from 'actions/nav';
@@ -24,7 +25,7 @@ class Nav extends React.Component {
         <nav>
           {
             nav.map(function(item, index){
-              return <a href="javascript:;" key={ `nav_${index}` }>{ item.text }</a>
+              return <Link to={ item.link } key={ `nav_${index}` }>{ item.text }</Link>
             })
           }
         </nav>

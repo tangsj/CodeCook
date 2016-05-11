@@ -9,6 +9,8 @@ export default (state = initialState, action) => {
       return Immutable.List(action.postlist).sort((va, vb) => {
         return va.id < vb.id ? 1 : -1;
       });
+    case types.CLEAR_POST_LIST:
+      return state.clear();
     default:
       return state;
   }

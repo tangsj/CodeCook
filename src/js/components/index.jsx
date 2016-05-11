@@ -22,12 +22,10 @@ class App extends React.Component {
     }
     render() {
         return (
-          <div>
+          <div className="app-container">
             <Header />
             <section id="main">
-              {
-                this.props.children
-              }
+              { this.props.children }
             </section>
             <Footer />
           </div>

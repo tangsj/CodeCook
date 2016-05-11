@@ -26,12 +26,20 @@ const store = buildStore(rootReducer, Immutable.Map());
 // 引入布局类型components
 import App from 'components/index';
 import Index from 'components/layout/index';
+import About from 'components/layout/about';
+import NoMatch from 'components/layout/nomatch';
 
+const env = process.env.NODE_ENV || 'development';
+// 开发环境下使用hashHistory
+const history = (env == 'production' ? browserHistory : hashHistory);
+console.log('render');
 ReactDOM.render((
   <Provider store={ store }>
-    <Router history={ browserHistory }>
+    <Router history={ history }>
       <Route path="/" component={ App }>
         <IndexRoute component={ Index } />
+        <Route path="about" component={ About }/>
+        <Route path="*" component={ NoMatch }/>
       </Route>
     </Router>
   </Provider>

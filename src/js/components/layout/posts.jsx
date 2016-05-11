@@ -45,6 +45,9 @@ class Article extends React.Component {
     componentDidMount() {
       this.props.fetchPostInfo(this.props.post);
     }
+    componentWillUnmount() {
+      this.props.cleanPostInfo();
+    }
     render() {
       const post = this.props.post;
       const postinfo = this.props.postinfo;
@@ -105,6 +108,10 @@ class Posts extends React.Component {
     }
     componentDidMount() {
       this.props.fetchPostList();
+    }
+    componentWillUnmount() {
+      console.log('posts unmount');
+      this.props.cleanPostList();
     }
     shouldComponentUpdate(nextProps, nextState) {
       return true;

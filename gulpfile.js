@@ -1,5 +1,6 @@
 "use strict"
 
+const fs               = require('fs');
 const gutil            = require('gulp-util');
 const webpack          = require('webpack');
 const webpackConfig    = require('./webpack.config.js');
@@ -14,6 +15,42 @@ const nested           = require('postcss-nested');              // 支持css嵌
 const rename           = require('gulp-rename');                 // 文件重命名
 const webpackDevServer = require('webpack-dev-server');
 const clean            = require('gulp-clean');
+const GulpSSH          = require('gulp-ssh');
+
+const hostConfig = {
+  host: '23.105.215.218',
+  port: 27575,
+  username: 'root',
+  privateKey: fs.readFileSync('/Users/codecook/.ssh/id_rsa')
+}
+
+var gulpSSH = new GulpSSH({
+  ignoreErrors: false,
+  sshConfig: hostConfig
+})
+
+/**
+ * ssh
+ */
+gulp.task('publish', ['clean-server', 'publish-datas', 'publish-posts', 'publish-uploads'], () => {
+  return gulp.src(['dest/**/*'])
+        .pipe( gulpSSH.dest('/root/htdocs') )
+});
+gulp.task('clean-server', () => {
+  return gulpSSH.exec(['cd htdocs/ && rm -rf *']);
+});
+gulp.task('publish-datas', () => {
+  return gulp.src(['datas/**/*'])
+        .pipe( gulpSSH.dest('/root/services/datas') )
+});
+gulp.task('publish-posts', () => {
+  return gulp.src(['posts/**/*'])
+        .pipe( gulpSSH.dest('/root/services/posts') )
+});
+gulp.task('publish-uploads', () => {
+  return gulp.src(['uploads/**/*'])
+        .pipe( gulpSSH.dest('/root/services/uploads') )
+});
 
 /**
  * clean

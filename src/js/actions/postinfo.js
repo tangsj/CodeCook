@@ -13,6 +13,16 @@ export function updatePostInfo(postinfo){
 }
 
 /**
+ * 清空PostInfo
+ */
+export const CLEAR_POST_INFO = 'clear-post-info';
+export function cleanPostInfo(){
+  return {
+    type: CLEAR_POST_INFO
+  }
+}
+
+/**
  * 拉取PostInfo list
  */
 export function fetchPostInfo(post){
