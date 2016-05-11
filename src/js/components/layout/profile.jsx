@@ -7,7 +7,11 @@ import { connect } from 'react-redux';
 import Immutable from 'immutable';
 
 @connect(
-  state => ({ author: state.get('author') })
+  state => ({
+    author: state.get('author'),
+    posts: state.get('posts'),
+    tags: state.get('tag')
+  })
 )
 class Profile extends React.Component {
     constructor(props) {
@@ -43,11 +47,11 @@ class Profile extends React.Component {
 
             <div className="article-info">
               <div className="col">
-                0
+                { this.props.posts.size }
                 <p>POSTS</p>
               </div>
               <div className="col">
-                0
+                { this.props.tags.size }
                 <p>TAGS</p>
               </div>
             </div>

@@ -45,9 +45,6 @@ class Article extends React.Component {
     componentDidMount() {
       this.props.fetchPostInfo(this.props.post);
     }
-    componentWillUnmount() {
-      this.props.cleanPostInfo();
-    }
     render() {
       const post = this.props.post;
       const postinfo = this.props.postinfo;
@@ -69,7 +66,7 @@ class Article extends React.Component {
               </span>
               <span className="category">
                 <i className="icon-folder-close"></i>
-                <a href="javascript:;" className="category-link">Tag</a>
+                <a href="javascript:;" className="category-link">{ post.tag }</a>
               </span>
             </div>
           </div>
@@ -99,7 +96,7 @@ class Article extends React.Component {
  */
 @connect(
   state => ({ posts: state.get('posts') }),
-  dispatch => bindActionCreators(postsActions, dispatch)
+  dispatch => bindActionCreators({...postsActions, ...postinfoActions}, dispatch)
 )
 class Posts extends React.Component {
     constructor(props) {
@@ -110,8 +107,8 @@ class Posts extends React.Component {
       this.props.fetchPostList();
     }
     componentWillUnmount() {
-      console.log('posts unmount');
-      this.props.cleanPostList();
+      this.props.cleanPostList(); // 清除文章列表
+      this.props.cleanPostInfo(); // 清除文章详细
     }
     shouldComponentUpdate(nextProps, nextState) {
       return true;

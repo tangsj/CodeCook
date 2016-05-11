@@ -32,7 +32,7 @@ import NoMatch from 'components/layout/nomatch';
 const env = process.env.NODE_ENV || 'development';
 // 开发环境下使用hashHistory
 const history = (env == 'production' ? browserHistory : hashHistory);
-console.log('render');
+
 ReactDOM.render((
   <Provider store={ store }>
     <Router history={ history }>

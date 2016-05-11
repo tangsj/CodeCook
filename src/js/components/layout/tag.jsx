@@ -15,9 +15,6 @@ class Tag extends React.Component {
       super(props);
       this.displayName = 'Tag';
     }
-    componentDidMount() {
-      this.props.fetchTags();
-    }
     render() {
       const tag = this.props.tag.toArray();;
       return (

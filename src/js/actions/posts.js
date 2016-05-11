@@ -1,5 +1,7 @@
 import request from 'superagent';
+import _ from 'lodash';
 import Config from 'config';
+import * as tagActions from './tag';
 
 /**
  * 重置PostList 信息
@@ -31,7 +33,17 @@ export function fetchPostList(){
       .get(`${Config.dataRoot}posts.json`)
       .end(function(err, response){
         if(!err && response.ok){
+          // 更新文章列表
           dispatch(resetPostsList(response.body));
+          // 取出标签信息
+          let tags = [];
+          _.each(response.body, (item, index) => {
+            let tag = {}
+            tag.name = item.tag || 'unknow';
+            tag.num = 1;
+            tags.push(tag);
+          });
+          dispatch(tagActions.resetTag(tags));
         }
       });
   }
