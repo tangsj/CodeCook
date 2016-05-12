@@ -8,6 +8,7 @@ import Immutable from 'immutable';
 import ReactMarkdown from 'react-markdown';
 import * as postsActions from 'actions/posts';
 import * as postinfoActions from 'actions/postinfo';
+import * as tagActions from 'actions/tag';
 import Config from 'config';
 
 /**
@@ -37,9 +38,6 @@ class Article extends React.Component {
       figure.src = Config.imgRoot + figurename;
     }
     shouldComponentUpdate(nextProps, nextState) {
-      if(Immutable.is(this.props.postinfo, nextProps.postinfo) && Immutable.is(this.state, nextState)){
-        return false;
-      }
       return true;
     }
     componentDidMount() {
@@ -48,7 +46,6 @@ class Article extends React.Component {
     render() {
       const post = this.props.post;
       const postinfo = this.props.postinfo;
-
       if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
@@ -96,7 +93,7 @@ class Article extends React.Component {
  */
 @connect(
   state => ({ posts: state.get('posts') }),
-  dispatch => bindActionCreators({...postsActions, ...postinfoActions}, dispatch)
+  dispatch => bindActionCreators({...postsActions, ...postinfoActions, ...tagActions}, dispatch)
 )
 class Posts extends React.Component {
     constructor(props) {
@@ -109,6 +106,7 @@ class Posts extends React.Component {
     componentWillUnmount() {
       this.props.cleanPostList(); // 清除文章列表
       this.props.cleanPostInfo(); // 清除文章详细
+      this.props.cleanTagInfo(); // 清除标签数据 
     }
     shouldComponentUpdate(nextProps, nextState) {
       return true;

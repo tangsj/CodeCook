@@ -3,32 +3,31 @@
  * @author tangsj
  */
 import Config from 'config';
+import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import Immutable from 'immutable';
+import * as authorActions from 'actions/author';
 
 @connect(
   state => ({
     author: state.get('author'),
     posts: state.get('posts'),
     tags: state.get('tag')
-  })
+  }),
+  dispatch => bindActionCreators(authorActions, dispatch)
 )
 class Profile extends React.Component {
     constructor(props) {
       super(props);
       this.displayName = 'Profile';
-      this.state = {
-        a: 1
-      }
     }
     shouldComponentUpdate(nextProps, nextState) {
-      if(Immutable.is(this.props.author, nextProps.author)){
-        return false;
-      }
       return true;
     }
+    componentDidMount() {
+      this.props.fetchAuthor();
+    }
     render() {
-      // console.log('__Profile render');
       const author = this.props.author.toObject();
       return (
         <aside className="profile">

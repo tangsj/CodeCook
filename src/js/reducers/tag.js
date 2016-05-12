@@ -21,6 +21,8 @@ export default function nav(state = initialState, action){
       });
 
       return Immutable.List(newTags);
+    case types.CLEAR_TAG_INFO:
+      return state.clear();
     default:
       return state;
   }

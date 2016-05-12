@@ -11,3 +11,13 @@ export function resetTag(tag){
     tag
   }
 }
+
+/**
+ * 清空Tag
+ */
+export const CLEAR_TAG_INFO = 'clear-tag-info';
+export function cleanTagInfo(){
+  return {
+    type: CLEAR_TAG_INFO
+  }
+}

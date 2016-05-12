@@ -33,8 +33,6 @@ export function fetchPostList(){
       .get(`${Config.dataRoot}posts.json`)
       .end(function(err, response){
         if(!err && response.ok){
-          // 更新文章列表
-          dispatch(resetPostsList(response.body));
           // 取出标签信息
           let tags = [];
           _.each(response.body, (item, index) => {
@@ -44,6 +42,9 @@ export function fetchPostList(){
             tags.push(tag);
           });
           dispatch(tagActions.resetTag(tags));
+
+          // 更新文章列表
+          dispatch(resetPostsList(response.body));
         }
       });
   }

@@ -21,3 +21,7 @@ Windows
 ###远程发布
 
 server方式打包完成后，可以利用 `gulp publish` 将代码一键发布到VPS服务器
+
+###问题
+
+需要实践利用Immutable配合shouldComponentUpdate进行性能优化

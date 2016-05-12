@@ -5,7 +5,10 @@
 import { connect } from 'react-redux';
 
 @connect(
-  state => ({ author: state.get('author') })
+  state => ({
+    author: state.get('author'),
+    posts: state.get('posts')
+  })
 )
 class Footer extends React.Component {
     constructor(props) {
@@ -17,7 +20,7 @@ class Footer extends React.Component {
       return (
         <footer>
           <div className="wrapper">
-            <p>© 2015 { author.name }</p>
+            <p>© 2015 { author.name || '' }</p>
             <p>Chrome</p>
           </div>
         </footer>
