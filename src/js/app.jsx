@@ -13,6 +13,8 @@ import thunk from 'redux-thunk';
 import rootReducer from './reducers';
 import Immutable from 'immutable';
 
+const env = process.env.NODE_ENV || 'development';
+
 /**
  * configureStore and buildStore
  */
@@ -29,13 +31,9 @@ import Index from 'components/layout/index';
 import About from 'components/layout/about';
 import NoMatch from 'components/layout/nomatch';
 
-const env = process.env.NODE_ENV || 'development';
-// 开发环境下使用hashHistory
-const history = (env == 'production' ? browserHistory : hashHistory);
-
 ReactDOM.render((
   <Provider store={ store }>
-    <Router history={ history }>
+    <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute component={ Index } />
         <Route path="about" component={ About }/>

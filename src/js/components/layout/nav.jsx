@@ -16,7 +16,7 @@ class Nav extends React.Component {
       super(props);
       this.displayName = 'Nav';
     }
-    componentDidMount() {
+    componentWillMount() {
       this.props.fetchNav();
     }
     render() {

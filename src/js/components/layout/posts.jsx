@@ -3,6 +3,7 @@
  * @author tangsj
  */
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import Immutable from 'immutable';
 import ReactMarkdown from 'react-markdown';
@@ -40,8 +41,10 @@ class Article extends React.Component {
     shouldComponentUpdate(nextProps, nextState) {
       return true;
     }
-    componentDidMount() {
+    componentWillMount() {
       this.props.fetchPostInfo(this.props.post);
+    }
+    componentDidMount() {
     }
     render() {
       const post = this.props.post;
@@ -100,13 +103,13 @@ class Posts extends React.Component {
       super(props);
       this.displayName = 'Posts';
     }
-    componentDidMount() {
+    componentWillMount() {
       this.props.fetchPostList();
     }
     componentWillUnmount() {
       this.props.cleanPostList(); // 清除文章列表
       this.props.cleanPostInfo(); // 清除文章详细
-      this.props.cleanTagInfo(); // 清除标签数据 
+      this.props.cleanTagInfo(); // 清除标签数据
     }
     shouldComponentUpdate(nextProps, nextState) {
       return true;

@@ -16,7 +16,7 @@ export function updateAuthor(author){
  * 拉取Author info
  */
 export function fetchAuthor(){
-  return dispatch => {
+  return (dispatch, getState) => {
     request
       .get(`${Config.dataRoot}author.json`)
       .end(function(err, response){

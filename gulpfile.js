@@ -106,10 +106,13 @@ gulp.task("webpack-dev-server", callback => {
 
   var compiler = webpack(config);
   new webpackDevServer(compiler, {
+    historyApiFallback: true, // 为React-Router 开启 browserHistory
     hot: true,
+    compress: true, // enable gzip
     //publicPath: config.output.publicPath,
     stats: {
-      colors: true
+      colors: true,
+      chunkModules: false // nodejs API https://webpack.github.io/docs/node.js-api.html
     }
   }).listen(8080, "localhost", function(err) {
     if(err) throw new gutil.PluginError("webpack-dev-server", err);

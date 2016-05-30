@@ -6,15 +6,13 @@ import Config from 'config';
 import {bindActionCreators} from 'redux';
 import { connect } from 'react-redux';
 import Immutable from 'immutable';
-import * as authorActions from 'actions/author';
 
 @connect(
   state => ({
     author: state.get('author'),
     posts: state.get('posts'),
     tags: state.get('tag')
-  }),
-  dispatch => bindActionCreators(authorActions, dispatch)
+  })
 )
 class Profile extends React.Component {
     constructor(props) {
@@ -23,9 +21,6 @@ class Profile extends React.Component {
     }
     shouldComponentUpdate(nextProps, nextState) {
       return true;
-    }
-    componentDidMount() {
-      this.props.fetchAuthor();
     }
     render() {
       const author = this.props.author.toObject();
