@@ -30,7 +30,7 @@ var gulpSSH = new GulpSSH({
 })
 
 /**
- * ssh
+ * ssh publish
  */
 gulp.task('publish', ['clean-server', 'publish-datas', 'publish-posts', 'publish-uploads'], () => {
   return gulp.src(['dest/**/*'])
