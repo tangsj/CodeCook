@@ -16,6 +16,7 @@ const rename           = require('gulp-rename');                 // 文件重命
 const webpackDevServer = require('webpack-dev-server');
 const clean            = require('gulp-clean');
 const GulpSSH          = require('gulp-ssh');
+const plumber          = require('gulp-plumber');
 
 const hostConfig = {
   host: '23.105.215.218',
@@ -63,6 +64,11 @@ gulp.task('clean', () => {
 /**
  * postcss
  */
+function errorHandler(err){
+  gutil.beep();
+  gutil.log('--------');
+  gutil.log(err);
+}
 gulp.task('postcss', () => {
   var processors = [
     cssimport,
@@ -74,8 +80,9 @@ gulp.task('postcss', () => {
     })
   ];
   return gulp.src('./src/css/main.css')
+          .pipe(plumber({ errorHandler: errorHandler }))   //  postcss-import 把错误给拦截了,也不会中断退出, 不明白
           .pipe(gulp_postcss(processors))
-          .on('error', errorHandler)
+          .pipe(plumber.stop())
           .pipe(rename({suffix: ".min"}))
           .pipe(gulp.dest('./src/css'))
 });
@@ -137,10 +144,3 @@ gulp.task('build', ['clean', 'webpack:build']);
 gulp.task('default', () => {
   console.log('缺少指令！please use:  [gulp dev] OR  [gulp build]');
 });
-
-function errorHandler(error) {
-  console.log(error.message);
-  console.log(error.fileName);
-  console.log('line:', error.line, 'column:', error.column);
-  this.emit('end');
-}
