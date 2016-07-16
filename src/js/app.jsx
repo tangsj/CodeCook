@@ -4,7 +4,7 @@
  */
 
 //样式引入
-import '../css/main.min.css';
+import '../css/main.css';
 
 import { Router, Route, browserHistory, IndexRoute, hashHistory } from 'react-router';
 import { compose, createStore, applyMiddleware } from 'redux';
@@ -24,6 +24,14 @@ const buildStore = compose(
 )(createStore);
 
 const store = buildStore(rootReducer, Immutable.Map());
+
+if (module.hot) {
+  // Enable Webpack hot module replacement for reducers
+  module.hot.accept('./reducers', () => {
+    const nextRootReducer = require('./reducers/index').default;
+    store.replaceReducer(nextRootReducer);
+  });
+}
 
 // 引入布局类型components
 import App from 'components/index';

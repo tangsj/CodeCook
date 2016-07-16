@@ -43,11 +43,11 @@ var webpackConfig = {
       {
         test: /\.js[x]?$/,
         exclude: /node_modules/,
-        loader: 'babel'
+        loader: (env?'react-hot!babel': 'babel')
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract('css-loader!postcss-loader') // style-loader
+        loader: ExtractTextPlugin.extract('css-loader?sourceMap!postcss-loader') // style-loader
       },
       {
         test: /\.json$/,

@@ -17,6 +17,11 @@ const webpackDevServer = require('webpack-dev-server');
 const clean            = require('gulp-clean');
 const GulpSSH          = require('gulp-ssh');
 const plumber          = require('gulp-plumber');
+const sourcemaps       = require('gulp-sourcemaps');
+const gulpif           = require('gulp-if');
+
+const env = process.env.NODE_ENV || 'development';
+const dev = (env == 'development');
 
 const hostConfig = {
   host: '23.105.215.218',
@@ -63,12 +68,8 @@ gulp.task('clean', () => {
 
 /**
  * postcss
+ * 这里的编译是单独给开发样式的时候用的
  */
-function errorHandler(err){
-  gutil.beep();
-  gutil.log('--------');
-  gutil.log(err);
-}
 gulp.task('postcss', () => {
   var processors = [
     cssimport,
@@ -80,10 +81,12 @@ gulp.task('postcss', () => {
     })
   ];
   return gulp.src('./src/css/main.css')
-          .pipe(plumber({ errorHandler: errorHandler }))   //  postcss-import 把错误给拦截了,也不会中断退出, 不明白
+          .pipe(plumber())
+          .pipe(gulpif(dev, sourcemaps.init()))
           .pipe(gulp_postcss(processors))
           .pipe(plumber.stop())
           .pipe(rename({suffix: ".min"}))
+          .pipe(gulpif(dev, sourcemaps.write('.')))
           .pipe(gulp.dest('./src/css'))
 });
 
