@@ -9,7 +9,9 @@
   font-style: normal;
 }
 
+*:after, *:before,
 *{ box-sizing: border-box; margin: 0; padding: 0; }
+
 html, body, #app-entry{ height: 100%; }
 body { background-color: #f5f8f9; font: 14px "Open Sans", "Helvetica Neue", "Microsoft Yahei", Helvetica, Arial, sans-serif; color: #565a5f; min-width: 1320px; -webkit-font-smoothing: antialiased; }
 a{ text-decoration: none; color: #565a5f; }
@@ -17,6 +19,7 @@ a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 .clearfix:after { display: block; visibility: hidden; height: 0; clear: both; content: ' '; font-size: 0;}
 .oh{ overflow: hidden; }
 .tc{ text-align: center; }
+.w100{ width: 100%; }
 
 .wrapper{ width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
 #main{ padding-top: 40px; padding-bottom: 60px; min-height: 600px; }
