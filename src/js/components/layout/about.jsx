@@ -43,7 +43,7 @@ class About extends React.Component {
             </div>
           </div>
           <div className="work">
-            <h2><i className="icon-link"></i>待过地方</h2>
+            <h2><i className="icon-link"></i>待过的地方</h2>
             <div className="items">
               <div className="item">
                 <div className="time">2011/2 - 2013/2</div>
@@ -51,7 +51,7 @@ class About extends React.Component {
               </div>
               <div className="item">
                 <div className="time">2013/3 - 2014/5</div>
-                <div className="company">重庆曻通科技有限公司</div>
+                <div className="company">重庆昇通科技有限公司</div>
               </div>
               <div className="item">
                 <div className="time">2014/5 - 2015/2</div>
