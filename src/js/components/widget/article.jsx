@@ -1,32 +1,31 @@
 /**
- * Posts
+ * Article
  * @author tangsj
  */
+import request from 'superagent';
 import { connect } from 'react-redux';
 import _ from 'lodash';
 import { bindActionCreators } from 'redux';
-import Immutable from 'immutable';
 import ReactMarkdown from 'react-markdown';
-import * as postsActions from 'actions/posts';
-import * as postinfoActions from 'actions/postinfo';
-import * as tagActions from 'actions/tag';
 import Config from 'config';
 
 /**
- * 单个文章
+ * 文章详细
  * @param  {[type]} state [description]
  * @return {[type]}       [description]
  */
 @connect(
-  state => ( { postinfo: state.get('postinfo') } ),
-  dispatch => bindActionCreators(postinfoActions, dispatch)
+  state => ({
+    posts: state.get('posts')
+  })
 )
 class Article extends React.Component {
     constructor(props) {
       super(props);
       this.displayName = 'Article';
       this.state = {
-        imgloading: false
+        imgloading: false,
+        content: ''
       }
     }
     _loadPostFigure(figurename){
@@ -38,17 +37,38 @@ class Article extends React.Component {
       }
       figure.src = Config.imgRoot + figurename;
     }
-    shouldComponentUpdate(nextProps, nextState) {
-      return true;
+    _loadPostContent(post){
+      request
+        .get(`${Config.postRoot}${post.source}`)
+        .set({ Accept: 'text/plain' })
+        .end((err, response) => {
+          if(!err && response.ok){
+            this.setState(Object.assign(this.state, {
+              content: response.text
+            }));
+          }
+        });
     }
-    componentWillMount() {
-      this.props.fetchPostInfo(this.props.post);
-    }
-    componentDidMount() {
+    getPostById(id){
+      let p;
+      this.props.posts.map((post, index)=>{
+        if(id == post.id){
+          p = post;
+        }
+      });
+      return p;
     }
     render() {
-      const post = this.props.post;
-      const postinfo = this.props.postinfo;
+      if(this.props.posts.size == 0){
+        return null;
+      }
+
+      let post = this.getPostById(this.props.id);
+
+      if(!this.state.content){
+        this._loadPostContent(post);
+      }
+
       if(!!post.figure && !this.state.imgloading){
         this._loadPostFigure(post.figure);
       }
@@ -73,8 +93,8 @@ class Article extends React.Component {
 
           <div className="article-entry">
             {
-              postinfo.has(post.id) ?
-                <ReactMarkdown source={ postinfo.get(post.id) }/>
+              this.state.content ?
+                <ReactMarkdown source={ this.state.content }/>
               :
                 <p className="tc">加载中...</p>
             }
@@ -89,47 +109,4 @@ class Article extends React.Component {
     }
 }
 
-/**
- * 文章列表
- * @param  {[type]} state [description]
- * @return {[type]}       [description]
- */
-@connect(
-  state => ({ posts: state.get('posts') }),
-  dispatch => bindActionCreators({...postsActions, ...postinfoActions, ...tagActions}, dispatch)
-)
-class Posts extends React.Component {
-    constructor(props) {
-      super(props);
-      this.displayName = 'Posts';
-    }
-    componentWillMount() {
-      this.props.fetchPostList();
-    }
-    componentWillUnmount() {
-      this.props.cleanPostList(); // 清除文章列表
-      this.props.cleanPostInfo(); // 清除文章详细
-      this.props.cleanTagInfo(); // 清除标签数据
-    }
-    shouldComponentUpdate(nextProps, nextState) {
-      return true;
-    }
-    render() {
-      const postlist = this.props.posts.toJS();
-      return (
-        <section className="post-list ">
-          <div className="inner">
-            {
-              postlist.map((post, index) => {
-                return (
-                  <Article post={ post } key={ `post_${index}` }/>
-                )
-              })
-            }
-          </div>
-        </section>
-      );
-    }
-}
-
-export default Posts;
+export default Article;

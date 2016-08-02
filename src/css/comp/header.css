@@ -1,17 +1,15 @@
 header { background-color: #FFF; height: 64px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05); position: relative; }
-header:after{ content: ''; width: 0; height: 2px; background-color: #38B7EA; position: absolute; top: 0; left: 0; animation: headertip 2s ease-in forwards; }
-header .wrapper{  padding: 0 280px 0 180px; height: 100%; }
+header:after { content: ''; width: 100%; height: 2px; background-color: #38B7EA; position: absolute; top: 0; left: 0;  /*animation: headertip 2s ease-in forwards;*/ }
+header .wrapper { padding: 0 280px 0 180px; height: 100%; }
 header .logo { font-size: 16px; font-weight: 600; display: inline-block; background: url(../images/logo.png) no-repeat left center; background-size: 48px; line-height: 64px; padding-left: 55px; position: absolute; left: 0; top: 0; }
-header nav{ height: 100%; line-height: 64px; }
-header nav a{ display: block; float: left; padding: 0 15px; }
-header nav a.active{ color: #38b7ea; }
-
-header .search-form{ position: absolute; top: 0; right: 0; height: 100%; line-height: 64px; padding: 12px 15px; width: 222px; }
-header .search-form input{ border: 1px solid #eceff2; border-radius: 20px; color: #565a5f; width: 100%; height: 100%; padding: 0 30px 0 16px; outline: none; display: block;transition: border .3s ease; }
-header .search-form input:focus{ border: 1px solid #38B7EA;  }
-header .search-form a{ position: absolute; top: 50%; right: 27px; transform: translateY(-50%);}
-
-@keyframes headertip{
-  0%{ width: 0%; }
-  100%{ width: 100%; }
+header nav { height: 100%; line-height: 64px; }
+header nav a { display: block; float: left; padding: 0 15px; }
+header nav a.active { color: #38b7ea; }
+header .search-form { position: absolute; top: 0; right: 0; height: 100%; line-height: 64px; padding: 12px 15px; width: 222px; }
+header .search-form input { border: 1px solid #eceff2; border-radius: 20px; color: #565a5f; width: 100%; height: 100%; padding: 0 30px 0 16px; outline: none; display: block; transition: border .3s ease; }
+header .search-form input:focus { border: 1px solid #38B7EA; }
+header .search-form a { position: absolute; top: 50%; right: 27px; transform: translateY(-50%); }
+@keyframes headertip {
+  0% { width: 0%; }
+  100% { width: 100%; }
 }

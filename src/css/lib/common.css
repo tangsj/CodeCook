@@ -25,6 +25,8 @@ a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 #main{ padding-top: 40px; padding-bottom: 60px; min-height: 600px; }
 .page-loading{ position: fixed; top: 0; right: 0; bottom: 0; left: 0; background-color: #f5f8f9; }
 .page-loading .loading{ position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+.inner { height: 100%; margin-bottom: 40px; }
+.inner .loading{ padding: 40px 0; }
 
 /* Loading */
 .loading { position: relative; text-align: center; }

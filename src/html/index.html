@@ -59,42 +59,51 @@
       <section class="post-list ">
         <div class="inner">
           <article class="posts">
-            <img src="../../uploads/shoes.jpg" alt="">
+            <!-- <img src="../../uploads/shoes.jpg" alt=""> -->
 
             <div class="header">
               <h1><a href="javascript:;">jQuery load() 方法加载图片在IE中不工作</a></h1>
+              <div class="date">
+                <i class="icon-calendar"></i>
+                <span>02-04</span>
+                <span class="year">2016</span>
+              </div>
               <div class="meta">
-                <span class="date"><i class="icon-calendar"></i>2016-02-04</span>
                 <span class="category"><i class="icon-folder-close"></i><a href="javascript:;" class="category-link">Tag</a></span>
               </div>
             </div>
+          </article>
 
-            <div class="article-entry">
-              <p>当你的javascript动作需要在一张图片加载完成后才能进行时，你就需要用到.load()方法</p>
+          <article class="posts">
+            <!-- <img src="../../uploads/shoes.jpg" alt=""> -->
 
-              <p>
-              ```javascript
-              $('img').load(function(){
-                // do something
-              });
-              ```
-              </p>
-
-              <p>
-              但是你会发现，这样在IE中是不起作用的，这是因为IE缓存引起的，解决办法：
-              </p>
-
-              <p>
-              ```javascript
-              var $img = $('img');
-              $img.attr("src", $img.attr('src') + "?" + new Date().getTime());
-              ```
-              </p>
+            <div class="header">
+              <h1><a href="javascript:;">jQuery load() 方法加载图片在IE中不工作</a></h1>
+              <div class="date">
+                <i class="icon-calendar"></i>
+                <span>02-04</span>
+                <span class="year">2016</span>
+              </div>
+              <div class="meta">
+                <span class="category"><i class="icon-folder-close"></i><a href="javascript:;" class="category-link">Tag</a></span>
+              </div>
             </div>
+          </article>
 
-            <div class="footer clearfix">
-              <a href="javascript:;" class="share-link"><i class="icon-share-alt"></i>分享</a>
-              <a href="javascript:;" class="comments"><i class="icon-comment"></i>评论</a>
+          <article class="posts">
+            <img src="../../uploads/shoes.jpg" alt="">
+
+            <div class="header">
+              <h1><a href="javascript:;">jQuery load() 方法加载图片在IE中不工作方法加载图片在IE中不工作方法加载图片在IE中不工作方法加载图片在IE中不工作</a></h1>
+              <div class="date">
+                <i class="icon-calendar"></i>
+                <span>02-04</span>
+                <span class="year">2016</span>
+              </div>
+
+              <div class="meta">
+                <span class="category"><i class="icon-folder-close"></i><a href="javascript:;" class="category-link">Tag</a></span>
+              </div>
             </div>
           </article>
         </div>

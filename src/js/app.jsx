@@ -36,6 +36,7 @@ if (module.hot) {
 // 引入布局类型components
 import App from 'components/index';
 import Index from 'components/layout/index';
+import Post from 'components/layout/post';
 import About from 'components/layout/about';
 import NoMatch from 'components/layout/nomatch';
 
@@ -44,6 +45,7 @@ ReactDOM.render((
     <Router history={ browserHistory }>
       <Route path="/" component={ App }>
         <IndexRoute component={ Index } />
+        <Route path="post/:id" component={ Post }/>
         <Route path="about" component={ About }/>
         <Route path="*" component={ NoMatch }/>
       </Route>

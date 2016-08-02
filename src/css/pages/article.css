@@ -1,0 +1,22 @@
+.page-article{
+  .posts {
+    width: 690px;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    background-color: #FFF;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  }
+  .posts img{ width: 100%; display: block; }
+  .posts .header{ color: #565a5f; padding: 20px; }
+  .posts .header h1{ font-size: 28px; font-weight: normal; margin-top: 0; margin-bottom: 10px; }
+  .posts .header .meta{ color: #9a9ea3; }
+  .posts .header .meta span{ margin-right: 10px; }
+  .posts .header .meta i{ margin-right: 5px; }
+  .posts .header .meta a{color: #9a9ea3;}
+  .posts .article-entry{ padding: 0 20px; line-height: 30px; padding-bottom: 20px; }
+  .posts .article-entry p{ margin: 20px 0; }
+  .posts .footer{ margin: 0 20px; border-top: 1px solid #eceff2; padding: 20px 0;  }
+  .posts .footer a{ float: right; color: #999; margin-left: 20px; font-size: 12px; }
+  .posts .footer a:hover{ color: #38B7EA; }
+  .posts .footer i{ margin-right: 5px; }
+}

@@ -1,6 +1,6 @@
 [
    {
-    "id": "0",
+    "id": "1",
     "title": "Ubuntu 安装 Consolas 字体",
     "date": "2015-04-04 23:39:33",
     "author": "tangsj",
@@ -9,7 +9,7 @@
     "figure": "shoes.jpg"
   },
   {
-    "id": "1",
+    "id": "2",
     "title": "CodeCook",
     "date": "2016-02-05 17:43:19",
     "author": "tangsj",
@@ -17,11 +17,19 @@
     "source": "first-article.md"
   },
   {
-    "id": "2",
+    "id": "3",
     "title": "触发重绘 - 重排常用属性",
     "date": "2016-05-30 10:40:39",
     "author": "tangsj",
     "tag": "浏览器",
     "source": "触发重绘 - 重排常用属性.md"
+  },
+  {
+    "id": "4",
+    "title": "Nginx开启Gzip",
+    "date": "2016-08-02 16:37:39",
+    "author": "tangsj",
+    "tag": "Linux",
+    "source": "nginx-gzip.md"
   }
 ]

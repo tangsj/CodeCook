@@ -6,6 +6,9 @@
 
 @import 'comp/header.css';
 @import 'comp/footer.css';
+@import 'comp/profile.css';
+@import 'comp/slidebar.css';
 
 @import 'pages/index.css';
+@import 'pages/article.css';
 @import 'pages/about.css';

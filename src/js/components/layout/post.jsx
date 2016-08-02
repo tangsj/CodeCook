@@ -1,38 +1,38 @@
 /**
- * 首页内容
+ * 文章详细
  * @author tangsj
  */
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import Profile from 'components/widget/profile';
-import Posts from 'components/widget/posts';
+import Article from 'components/widget/article';
 import Tag from 'components/widget/tag';
 import * as postsActions from 'actions/posts';
 
 @connect(
-  state => ({}),
+  state => ({ posts: state.get('posts') }),
   dispatch => bindActionCreators(postsActions, dispatch)
 )
-class Index extends React.Component {
+class Post extends React.Component {
     constructor(props) {
       super(props);
-      this.displayName = 'Index';
+      this.displayName = 'Post';
     }
     componentWillMount() {
       this.props.fetchPostList();
     }
     render() {
       return (
-        <div className="wrapper page-index">
+        <div className="wrapper page-article">
           <Profile />
-          <Posts />
+          <Article id={ this.props.params.id } />
           <Tag />
         </div>
       );
     }
 }
 
-export default Index;
+export default Post;
 
 
 

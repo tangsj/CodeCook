@@ -4,8 +4,8 @@
  */
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import Header from 'components/layout/header';
-import Footer from 'components/layout/footer';
+import Header from 'components/widget/header';
+import Footer from 'components/widget/footer';
 import * as authorActions from 'actions/author';
 
 @connect(
@@ -19,7 +19,6 @@ class App extends React.Component {
     }
     componentWillMount() {
       this.props.fetchAuthor();
-      console.log(this.props);
     }
     componentDidMount() {
       console.log('App 挂载成功！');

@@ -8,7 +8,7 @@ class NoMatch extends React.Component {
         this.displayName = 'NoMatch';
     }
     render() {
-        return <div className="wrapper">NoMatch</div>;
+        return <div className="wrapper page-nomatch">未页面没有找到呢！！</div>;
     }
 }
 

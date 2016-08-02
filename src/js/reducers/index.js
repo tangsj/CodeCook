@@ -3,7 +3,6 @@ import author from './author';
 import nav from './nav';
 import tag from './tag';
 import posts from './posts';
-import postinfo from './postinfo';
 
 const rootReducer = combineReducers({
   // 创建者信息
@@ -13,9 +12,7 @@ const rootReducer = combineReducers({
   // 标签信息
   tag,
   // 文章列表信息
-  posts,
-  // 文章详细 
-  postinfo
+  posts
 });
 
 export default rootReducer;

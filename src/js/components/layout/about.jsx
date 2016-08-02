@@ -5,7 +5,6 @@
 import Config from 'config';
 import { connect } from 'react-redux';
 
-
 @connect(
   state => ({
     author: state.get('author')
@@ -21,7 +20,7 @@ class About extends React.Component {
 
       return (
         <div className="wrapper page-about">
-          <div className="profile">
+          <div className="info">
             <div className="left">
               <div className="w100">
                 <h2 className="name">{ author.fullName }</h2>
