@@ -16,7 +16,7 @@ class Tag extends React.Component {
       this.displayName = 'Tag';
     }
     render() {
-      const tag = this.props.tag.toArray();;
+      const tag = this.props.tag.toArray();
       return (
         <aside className="slidebar">
           <div className="widget-wrap">

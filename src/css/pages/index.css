@@ -16,7 +16,7 @@
     color: #565a5f;
     padding: 20px 20px 20px 120px;
     position: relative;
-
+    overflow: hidden;
     &:before {
       content: '';
       position: absolute;
@@ -26,7 +26,7 @@
       height: 100%;
       background-color: #38b7ea;
       z-index: 0;
-      transition: width .3s linear;
+      transition: all .3s linear;
     }
   }
   .posts .header h1 {

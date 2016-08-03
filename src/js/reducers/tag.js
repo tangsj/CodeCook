@@ -10,14 +10,20 @@ export default function nav(state = initialState, action){
     case types.RESET_TAG_INFO:
       let newTags = [];
       _.each(action.tag, (tag, i) => {
-        var _in = false;
-        _.each(newTags, (item, j) => {
-          if(item.name == tag.name){
-            item.num++;
-            _in = true
+        tag.split(',').map( (t, k) => {
+          let _in = false;
+          let temp = {
+            name: t,
+            num: 1
           }
-        });
-        !_in && newTags.push(_.extend({},tag));
+          newTags.map((item, j) => {
+            if(item.name == t){
+              item.num++;
+              _in = true
+            }
+          });
+          !_in && newTags.push(temp);
+        } );
       });
 
       return Immutable.List(newTags);

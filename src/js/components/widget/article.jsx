@@ -8,6 +8,7 @@ import _ from 'lodash';
 import { bindActionCreators } from 'redux';
 import ReactMarkdown from 'react-markdown';
 import Config from 'config';
+import hljs from 'highlight.js';
 
 /**
  * 文章详细
@@ -57,6 +58,11 @@ class Article extends React.Component {
         }
       });
       return p;
+    }
+    componentDidUpdate(prevProps, prevState) {
+      Array.prototype.slice.call(ReactDOM.findDOMNode(this).querySelectorAll('pre code')).forEach( (block, index) => {
+        hljs.highlightBlock(block);
+      });
     }
     render() {
       if(this.props.posts.size == 0){

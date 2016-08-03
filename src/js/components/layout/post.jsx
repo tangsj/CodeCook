@@ -21,6 +21,11 @@ class Post extends React.Component {
     componentWillMount() {
       this.props.fetchPostList();
     }
+    componentDidMount() {
+    }
+    componentDidUpdate(prevProps, prevState) {
+      document.body.scrollTop = 0;
+    }
     render() {
       return (
         <div className="wrapper page-article">

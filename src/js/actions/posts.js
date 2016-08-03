@@ -36,10 +36,7 @@ export function fetchPostList(){
           // 取出标签信息
           let tags = [];
           _.each(response.body, (item, index) => {
-            let tag = {}
-            tag.name = item.tag || 'unknow';
-            tag.num = 1;
-            tags.push(tag);
+            tags.push(item.tag || 'unknow');
           });
           dispatch(tagActions.resetTag(tags));
 
