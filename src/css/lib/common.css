@@ -22,6 +22,7 @@ a:hover { color: #38B7EA; transition: color .4s ease-in-out; }
 .oh{ overflow: hidden; }
 .tc{ text-align: center; }
 .w100{ width: 100%; }
+.hide{ display: none; }
 
 .wrapper{ width: 1320px; margin: 0 auto; min-height: 100%; position: relative; }
 #main{ padding-top: 40px; padding-bottom: 60px; min-height: 600px; }

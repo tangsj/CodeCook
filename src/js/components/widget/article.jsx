@@ -26,7 +26,8 @@ class Article extends React.Component {
       this.displayName = 'Article';
       this.state = {
         imgloading: false,
-        content: ''
+        content: '',
+        showComment: false,
       }
     }
     _loadPostFigure(figurename){
@@ -63,6 +64,8 @@ class Article extends React.Component {
       Array.prototype.slice.call(ReactDOM.findDOMNode(this).querySelectorAll('pre code')).forEach( (block, index) => {
         hljs.highlightBlock(block);
       });
+    }
+    componentDidMount() {
     }
     render() {
       if(this.props.posts.size == 0){
@@ -106,10 +109,12 @@ class Article extends React.Component {
             }
           </div>
 
-          <div className="footer clearfix">
+          <div className="footer clearfix hide">
             <a href="javascript:;" className="share-link"><i className="icon-share-alt"></i>分享</a>
             <a href="javascript:;" className="comments"><i className="icon-comment"></i>评论</a>
           </div>
+
+          <div className="comment-box"></div>
         </article>
       );
     }
