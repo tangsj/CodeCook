@@ -19,4 +19,8 @@
   .posts .footer a{ float: right; color: #999; margin-left: 20px; font-size: 12px; }
   .posts .footer a:hover{ color: #38B7EA; }
   .posts .footer i{ margin-right: 5px; }
+  .comment-box{ padding: 0 20px 20px; }
+  .comment-box .btn-warp { text-align: right; }
+  .comment-box .submit { color: #FFF; width: 100px; height: 30px; display: inline-block; font-size: 14px; line-height: 30px; text-align: center; background: #38b7ea; border-radius: 10px; font-weight: bold; }
+  .comment-box textarea{ width: 100%; resize: none; border: 1px solid #eceff2; outline: none; }
 }

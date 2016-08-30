@@ -17,9 +17,17 @@ class Post extends React.Component {
     constructor(props) {
       super(props);
       this.displayName = 'Post';
+      this.state = {
+        listLoading: false
+      }
     }
     componentWillMount() {
-      this.props.fetchPostList();
+      var p = this.props.fetchPostList();
+      p.then( () => {
+        this.setState({
+          listLoading: true
+        });
+      });
     }
     componentDidMount() {
     }
@@ -30,7 +38,9 @@ class Post extends React.Component {
       return (
         <div className="wrapper page-article">
           <Profile />
-          <Article id={ this.props.params.id } />
+            {
+              this.state.listLoading ? <Article id={ this.props.params.id } /> :''
+            }
           <Tag />
         </div>
       );

@@ -29,8 +29,8 @@ export function cleanPostList(){
  */
 export function fetchPostList(){
   return (dispatch, getState) => {
-    request
-      .get(`${Config.dataRoot}posts.json`)
+    let promise = new Promise(function(resolve, reject){
+      request.get(`${Config.dataRoot}posts.json`)
       .end(function(err, response){
         if(!err && response.ok){
           // 取出标签信息
@@ -42,7 +42,10 @@ export function fetchPostList(){
 
           // 更新文章列表
           dispatch(resetPostsList(response.body));
+          resolve();
         }
       });
+    });
+    return promise;
   }
 }

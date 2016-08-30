@@ -66,6 +66,7 @@ var webpackConfig = {
       ];
   },
   plugins: [
+    new webpack.BannerPlugin('author : t_fate@163.com', {}),
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin('css/[contenthash:8].[name].css'),
     new webpack.ProvidePlugin({
