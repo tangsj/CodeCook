@@ -40,5 +40,13 @@
     "tag": "Javascript,Css,Html",
     "source": "前端干货.md",
     "figure": "a-5.jpg"
+  },
+  {
+    "id": "6",
+    "title": "移动端web开发技巧",
+    "date": "2016-09-08 11:26:11",
+    "author": "tangsj",
+    "tag": "Javascript,Css,Html",
+    "source": "移动端web开发技巧.md"
   }
 ]
