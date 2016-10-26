@@ -11,8 +11,7 @@
 通过百度手机打开网页时，百度可能会对你的网页进行转码，往你页面贴上它的广告，非常之恶心。不过我们可以通过这个meta标签来禁止它：
 
 ```
-<meta name="apple-mobile-web-app-capable" content="yes" />
-<meta name="apple-touch-fullscreen" content="yes" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
 ```
 
 #### 3.移动端手机号码识别（IOS）
