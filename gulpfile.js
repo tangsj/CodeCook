@@ -24,8 +24,8 @@ const env = process.env.NODE_ENV || 'development';
 const dev = (env == 'development');
 
 const hostConfig = {
-  host: '23.105.215.218',
-  port: 27575,
+  host: '118.89.47.166',
+  port: 22,
   username: 'root',
   privateKey: fs.readFileSync('/Users/codecook/.ssh/id_rsa')
 }
@@ -38,24 +38,24 @@ var gulpSSH = new GulpSSH({
 /**
  * ssh publish
  */
-gulp.task('publish', ['clean-server', 'publish-datas', 'publish-posts', 'publish-uploads'], () => {
+gulp.task('publish', () => {
   return gulp.src(['dest/**/*'])
-        .pipe( gulpSSH.dest('/root/htdocs') )
+        .pipe( gulpSSH.dest('/data/tsj/blog') )
 });
 gulp.task('clean-server', () => {
-  return gulpSSH.exec(['cd htdocs/ && rm -rf *']);
+  return gulpSSH.exec(['cd /data/tsj/blog/ && rm -rf *']);
 });
 gulp.task('publish-datas', () => {
   return gulp.src(['datas/**/*'])
-        .pipe( gulpSSH.dest('/root/services/datas') )
+        .pipe( gulpSSH.dest('/data/tsj/blog/services/datas') )
 });
 gulp.task('publish-posts', () => {
   return gulp.src(['posts/**/*'])
-        .pipe( gulpSSH.dest('/root/services/posts') )
+        .pipe( gulpSSH.dest('/data/tsj/blog/services/posts') )
 });
 gulp.task('publish-uploads', () => {
   return gulp.src(['uploads/**/*'])
-        .pipe( gulpSSH.dest('/root/services/uploads') )
+        .pipe( gulpSSH.dest('/data/tsj/blog/services/uploads') )
 });
 
 /**
