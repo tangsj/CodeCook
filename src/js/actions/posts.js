@@ -8,6 +8,7 @@ import * as tagActions from './tag';
  */
 export const RESET_POST_LIST = 'reset-post-list';
 export function resetPostsList(postlist){
+  console.log(postlist)
   return {
     type: RESET_POST_LIST,
     postlist

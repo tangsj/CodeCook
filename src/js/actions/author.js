@@ -19,7 +19,7 @@ export function fetchAuthor(){
   return (dispatch, getState) => {
     request
       .get(`${Config.dataRoot}author.json`)
-      .end(function(err, response){
+      .end(function(err, response, body){
         if(!err && response.ok){
           dispatch(updateAuthor(response.body));
         }

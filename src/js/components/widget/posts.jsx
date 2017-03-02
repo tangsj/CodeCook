@@ -20,6 +20,8 @@ class Posts extends React.Component {
     constructor(props) {
       super(props);
       this.displayName = 'Posts';
+      this.state = {
+      }
     }
     componentWillMount() {
     }
@@ -29,12 +31,12 @@ class Posts extends React.Component {
       return true;
     }
     render() {
-      const postlist = this.props.posts.toJS();
+      var showList = this.props.posts.toJS();
       return (
         <section className="post-list ">
           <div className="inner">
             {
-              postlist.map((post, index) => {
+              showList.map((post, index) => {
 
                 let dateSplit = post.date.split(' ');
                 let dateArr = dateSplit[0].split('-');

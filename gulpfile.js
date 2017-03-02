@@ -20,6 +20,8 @@ const plumber          = require('gulp-plumber');
 const sourcemaps       = require('gulp-sourcemaps');
 const gulpif           = require('gulp-if');
 
+const os = require('os');
+
 const env = process.env.NODE_ENV || 'development';
 const dev = (env == 'development');
 
@@ -27,7 +29,7 @@ const hostConfig = {
   host: '118.89.47.166',
   port: 22,
   username: 'root',
-  privateKey: fs.readFileSync('/Users/codecook/.ssh/id_rsa')
+  privateKey: fs.readFileSync( os.homedir() + '/.ssh/id_rsa')
 }
 
 var gulpSSH = new GulpSSH({
